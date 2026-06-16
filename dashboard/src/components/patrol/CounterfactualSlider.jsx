@@ -37,8 +37,8 @@ export default function CounterfactualSlider() {
   const deliveryHours = useAnimatedCounter(result?.delivery_hours_saved_monthly || 0, 800, 0);
 
   return (
-    <div className="counterfactual-section">
-      <div className="slider-card">
+    <div className="sim-layout">
+      <div className="sim-card">
         <h3>What-If Simulation</h3>
         <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 12 }}>
           Adjust enforcement rate to see projected impact on congestion
@@ -61,7 +61,7 @@ export default function CounterfactualSlider() {
           onTouchEnd={handleSliderRelease}
         />
 
-        <div className="slider-value gradient-text">
+        <div className="slider-value">
           {(rate * 100).toFixed(0)}%
         </div>
 
@@ -86,7 +86,7 @@ export default function CounterfactualSlider() {
         )}
       </div>
 
-      <div className="slider-card">
+      <div className="sim-card">
         <h3>Before / After CongestIQ</h3>
 
         {result && (
@@ -96,7 +96,7 @@ export default function CounterfactualSlider() {
                 <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: 6 }}>
                   Baseline
                 </div>
-                <div className="data-number" style={{ fontSize: 24, color: 'var(--accent-danger)' }}>
+                <div className="data-number" style={{ fontSize: 24, color: 'var(--danger)' }}>
                   {Number(result.baseline_congestiq).toLocaleString()}
                 </div>
               </div>
@@ -104,7 +104,7 @@ export default function CounterfactualSlider() {
                 <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: 6 }}>
                   Simulated
                 </div>
-                <div className="data-number" style={{ fontSize: 24, color: 'var(--accent-success)' }}>
+                <div className="data-number" style={{ fontSize: 24, color: 'var(--success)' }}>
                   {Number(result.simulated_congestiq).toLocaleString()}
                 </div>
               </div>
@@ -116,14 +116,14 @@ export default function CounterfactualSlider() {
                 <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 4 }}>Baseline</div>
                 <div style={{
                   height: 20, borderRadius: 4,
-                  background: 'var(--accent-danger)', width: '100%', opacity: 0.7
+                  background: 'var(--danger)', width: '100%', opacity: 0.7
                 }} />
               </div>
               <div>
                 <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 4 }}>Simulated</div>
                 <div style={{
                   height: 20, borderRadius: 4,
-                  background: 'var(--accent-success)', opacity: 0.7,
+                  background: 'var(--success)', opacity: 0.7,
                   width: `${((result.simulated_congestiq / result.baseline_congestiq) * 100).toFixed(1)}%`,
                   transition: 'width 0.5s ease'
                 }} />
