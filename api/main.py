@@ -415,12 +415,17 @@ def counterfactual(enforcement_rate: Optional[float] = Query(None, ge=0.5, le=1.
         enforcement_rate = 0.80
 
     # Find closest matching scenario
-    closest = min(data, key=lambda s: abs(s.get("enforcement_rate", s.get("scenario", 0)) - enforcement_rate)
-                  if isinstance(s.get("enforcement_rate"), (int, float))
-                  else abs(_parse_rate_from_scenario(s.get("scenario", "")) - enforcement_rate))
+    # Handle both 'enforcement_rate' (mock) and 'target_enforcement_rate' (real data)
+    def _get_rate(s):
+        rate = s.get("target_enforcement_rate", s.get("enforcement_rate"))
+        if isinstance(rate, (int, float)):
+            return abs(rate - enforcement_rate)
+        return abs(_parse_rate_from_scenario(s.get("scenario", "")) - enforcement_rate)
 
-    # Return without the enforcement_rate helper field (match prompt schema)
-    result = {k: v for k, v in closest.items() if k != "enforcement_rate"}
+    closest = min(data, key=_get_rate)
+
+    # Return without internal helper fields
+    result = {k: v for k, v in closest.items() if k not in ("enforcement_rate",)}
     return result
 
 
