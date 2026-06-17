@@ -9,6 +9,9 @@ export const fetchCascade = (zoneId) =>
 export const fetchPatrolPlan = (hour) =>
   fetch(`${API_BASE}/patrol-plan${hour !== undefined ? `?hour=${hour}` : ''}`).then(r => r.json());
 
+export const fetchPatrolItineraries = () =>
+  fetch(`${API_BASE}/patrol-itineraries`).then(r => r.json());
+
 export const fetchEnforcement = () =>
   fetch(`${API_BASE}/enforcement`).then(r => r.json());
 
@@ -17,3 +20,4 @@ export const fetchCounterfactual = (rate) =>
 
 export const fetchArchetypes = () =>
   fetch(`${API_BASE}/archetypes`).then(r => r.json());
+

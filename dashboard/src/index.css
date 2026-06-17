@@ -1601,3 +1601,100 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 11px;
   font-weight: 600;
 }
+
+/* ── Unit Itineraries ── */
+.itinerary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.itinerary-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.itinerary-card:hover {
+  border-color: var(--border-hover);
+}
+
+.itinerary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.itinerary-header:hover {
+  background: var(--bg-hover);
+}
+
+.unit-badge {
+  background: var(--accent-subtle);
+  color: var(--accent);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  white-space: nowrap;
+}
+
+.itinerary-detail {
+  padding: 0 18px 18px;
+  border-top: 1px solid var(--border);
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; max-height: 0; }
+  to { opacity: 1; max-height: 1000px; }
+}
+
+.route-timeline {
+  padding-top: 16px;
+}
+
+.route-step {
+  display: flex;
+  gap: 14px;
+  min-height: 48px;
+}
+
+.route-dot-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 16px;
+  flex-shrink: 0;
+}
+
+.route-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.route-dot.start {
+  background: var(--success);
+  box-shadow: 0 0 0 3px var(--success-subtle);
+}
+
+.route-line {
+  width: 2px;
+  flex: 1;
+  background: var(--border-hover);
+  margin: 4px 0;
+}
+
+.route-content {
+  flex: 1;
+  padding-bottom: 12px;
+}
