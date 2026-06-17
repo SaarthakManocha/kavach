@@ -332,9 +332,28 @@ def patrol_plan(hour: Optional[int] = Query(None, ge=0, le=23)):
     """
     data = load_json_or_mock("patrol_plan.json", MOCK_PATROL_PLAN)
 
+    # Handle new nested format: {plan: [...], unit_itineraries: [...], fleet_summary: {...}}
+    plan_entries = data.get("plan", data) if isinstance(data, dict) else data
+
     if hour is not None:
-        return [entry for entry in data if entry.get("hour") == hour]
-    return data
+        return [entry for entry in plan_entries if entry.get("hour") == hour]
+    return plan_entries
+
+
+@app.get("/api/patrol-itineraries")
+def patrol_itineraries():
+    """Returns per-unit patrol itineraries with travel times and fleet summary.
+
+    Source: outputs/patrol_plan.json (unit_itineraries + fleet_summary sections)
+    """
+    data = load_json_or_mock("patrol_plan.json", MOCK_PATROL_PLAN)
+
+    if isinstance(data, dict) and "unit_itineraries" in data:
+        return {
+            "unit_itineraries": data["unit_itineraries"],
+            "fleet_summary": data.get("fleet_summary", {}),
+        }
+    return {"unit_itineraries": [], "fleet_summary": {}}
 
 
 @app.get("/api/enforcement")
