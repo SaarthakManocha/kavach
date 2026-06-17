@@ -14,9 +14,13 @@ Run with: python modules/module4_enforcement.py
 import pandas as pd
 import numpy as np
 import json
+import warnings
 from pathlib import Path
 from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import StandardScaler
+import shap
+
+warnings.filterwarnings('ignore')
 
 
 # Paths relative to project root
@@ -64,9 +68,18 @@ def aggregate_per_station(df: pd.DataFrame) -> pd.DataFrame:
     return stats
 
 
-def detect_anomalies(stats: pd.DataFrame) -> pd.DataFrame:
-    """Run Isolation Forest to detect enforcement anomalies."""
-    features = stats[['total_violations', 'enforcement_rate', 'approval_rate']].values
+FEATURE_COLS = ['total_violations', 'enforcement_rate', 'approval_rate']
+
+FEATURE_LABELS = {
+    'total_violations': 'Violation Volume',
+    'enforcement_rate': 'Enforcement Rate',
+    'approval_rate': 'Approval Rate',
+}
+
+
+def detect_anomalies(stats: pd.DataFrame) -> tuple:
+    """Run Isolation Forest to detect enforcement anomalies + SHAP explanations."""
+    features = stats[FEATURE_COLS].values
 
     # Standardize features
     scaler = StandardScaler()
@@ -81,17 +94,69 @@ def detect_anomalies(stats: pd.DataFrame) -> pd.DataFrame:
     # Rank by anomaly_score ascending (most anomalous = rank 1, most negative score)
     stats['rank'] = stats['anomaly_score'].rank(method='min').astype(int)
 
-    return stats
+    # --- SHAP Explanations ---
+    print("  Computing SHAP explanations ...")
+    # Use KernelExplainer for IsolationForest (unsupervised model)
+    # We explain the decision_function (anomaly score)
+    explainer = shap.KernelExplainer(
+        iso.decision_function, features_scaled,
+        link="identity"
+    )
+    shap_values = explainer.shap_values(features_scaled, nsamples=100)
+
+    # Compute per-station SHAP reasons
+    avg_values = stats[FEATURE_COLS].mean()
+    shap_reasons = []
+    for i in range(len(stats)):
+        reasons = []
+        # Get indices sorted by absolute SHAP value (most impactful first)
+        sorted_indices = np.argsort(-np.abs(shap_values[i]))
+        for idx in sorted_indices[:3]:  # top 3 reasons
+            col = FEATURE_COLS[idx]
+            sv = shap_values[i][idx]
+            actual = stats.iloc[i][col]
+            avg = avg_values[col]
+
+            # Direction: is this feature pushing toward anomaly or normal?
+            if col == 'enforcement_rate':
+                direction = 'low' if actual < avg else 'high'
+                diff = abs(actual - avg)
+                if col in ('enforcement_rate', 'approval_rate'):
+                    detail = f"{diff*100:.0f}pp {'below' if actual < avg else 'above'} average ({avg*100:.0f}%)"
+                else:
+                    detail = f"{actual/avg:.1f}x the average ({avg:,.0f})"
+            elif col == 'approval_rate':
+                direction = 'low' if actual < avg else 'high'
+                diff = abs(actual - avg)
+                detail = f"{diff*100:.0f}pp {'below' if actual < avg else 'above'} average ({avg*100:.0f}%)"
+            else:  # total_violations
+                direction = 'high' if actual > avg else 'low'
+                detail = f"{actual/avg:.1f}x the average ({avg:,.0f})"
+
+            reasons.append({
+                'factor': FEATURE_LABELS[col],
+                'feature': col,
+                'direction': direction,
+                'detail': detail,
+                'shap_value': round(float(sv), 4),
+                'actual_value': round(float(actual), 4),
+            })
+        shap_reasons.append(reasons)
+
+    print(f"  SHAP explanations computed for {len(stats)} stations")
+    return stats, shap_reasons
 
 
-def format_output(stats: pd.DataFrame) -> list:
-    """Format output to match the exact JSON schema required."""
+def format_output(stats: pd.DataFrame, shap_reasons: list) -> list:
+    """Format output with SHAP explanations."""
     # Sort by rank ascending (most anomalous first)
+    sort_order = stats['rank'].argsort().values
     stats = stats.sort_values('rank').reset_index(drop=True)
+    sorted_reasons = [shap_reasons[i] for i in sort_order]
 
     output = []
-    for _, row in stats.iterrows():
-        output.append({
+    for idx, (_, row) in enumerate(stats.iterrows()):
+        entry = {
             "police_station": row['police_station'],
             "total_violations": int(row['total_violations']),
             "enforcement_rate": round(float(row['enforcement_rate']), 4),
@@ -99,7 +164,9 @@ def format_output(stats: pd.DataFrame) -> list:
             "anomaly_score": round(float(row['anomaly_score']), 4),
             "is_anomaly": bool(row['is_anomaly']),
             "rank": int(row['rank']),
-        })
+            "anomaly_reasons": sorted_reasons[idx],
+        }
+        output.append(entry)
 
     return output
 
@@ -142,14 +209,14 @@ def main():
     stats = aggregate_per_station(df)
     print(f"Aggregated stats for {len(stats)} police stations")
 
-    # 3. Detect anomalies
-    stats = detect_anomalies(stats)
+    # 3. Detect anomalies + SHAP explanations
+    stats, shap_reasons = detect_anomalies(stats)
 
     # 4. Print summary
     print_summary(stats)
 
     # 5. Save output
-    output = format_output(stats)
+    output = format_output(stats, shap_reasons)
     OUTPUTS_DIR.mkdir(exist_ok=True)
     output_path = OUTPUTS_DIR / "enforcement_anomalies.json"
     with open(output_path, 'w') as f:

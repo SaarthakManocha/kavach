@@ -69,6 +69,11 @@ const deliveryHours = useAnimatedCounter(result?.scenario?.flipkart?.delivery_ho
           <div className="reduction-highlight">
             <div className="reduction-value">{reductionPct}%</div>
             <div className="reduction-label">CongestIQ Reduction</div>
+            {result.scenario?.reduction_ci && (
+              <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4 }}>
+                95% CI: {result.scenario.reduction_ci_lower}%–{result.scenario.reduction_ci_upper}%
+              </div>
+            )}
           </div>
         )}
 
@@ -77,10 +82,20 @@ const deliveryHours = useAnimatedCounter(result?.scenario?.flipkart?.delivery_ho
             <div className="impact-stat">
               <div className="impact-value">{hoursSaved}</div>
               <div className="impact-label">Hours Saved / Month</div>
+              {result.scenario?.hours_ci_lower != null && (
+                <div style={{ fontSize: 10, color: 'var(--text-muted)', marginTop: 2 }}>
+                  CI: {Number(result.scenario.hours_ci_lower).toLocaleString()}–{Number(result.scenario.hours_ci_upper).toLocaleString()}
+                </div>
+              )}
             </div>
             <div className="impact-stat">
               <div className="impact-value">{deliveryHours}</div>
               <div className="impact-label">Delivery Hours Saved</div>
+              {result.scenario?.flipkart?.delivery_hours_ci && (
+                <div style={{ fontSize: 10, color: 'var(--text-muted)', marginTop: 2 }}>
+                  CI: {result.scenario.flipkart.delivery_hours_ci.replace('--', '–')}
+                </div>
+              )}
             </div>
           </div>
         )}

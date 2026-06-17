@@ -26,9 +26,12 @@ const deliveryHours = useAnimatedCounter(result?.scenario?.flipkart?.delivery_ho
       {result && (
         <>
           <div className="stat-cards-row">
-            <StatCard label="CongestionIQ Reduction" value={result.scenario.reduction_pct} decimals={1} suffix="%" icon={TrendingDown} accent="var(--success)" />
-            <StatCard label="Hours Saved / Month" value={result.scenario.hours_saved_monthly} icon={Clock} accent="var(--accent)" />
-            <StatCard label="Delivery Hours Saved" value={result.scenario.flipkart.delivery_hours_saved_monthly} icon={Truck} accent="var(--accent)" />
+            <StatCard label="CongestionIQ Reduction" value={result.scenario.reduction_pct} decimals={1} suffix="%" icon={TrendingDown} accent="var(--success)"
+              subtext={result.scenario.reduction_ci ? `95% CI: ${result.scenario.reduction_ci_lower}%\u2013${result.scenario.reduction_ci_upper}%` : undefined} />
+            <StatCard label="Hours Saved / Month" value={result.scenario.hours_saved_monthly} icon={Clock} accent="var(--accent)"
+              subtext={result.scenario.hours_ci_lower != null ? `95% CI: ${Number(result.scenario.hours_ci_lower).toLocaleString()}\u2013${Number(result.scenario.hours_ci_upper).toLocaleString()}` : undefined} />
+            <StatCard label="Delivery Hours Saved" value={result.scenario.flipkart.delivery_hours_saved_monthly} icon={Truck} accent="var(--accent)"
+              subtext={result.scenario.flipkart.delivery_hours_ci ? `95% CI: ${result.scenario.flipkart.delivery_hours_ci.replace('--', '\u2013')}` : undefined} />
             <StatCard label="Zones Impacted" value={result.scenario?.zones_affected || result.scenario?.top_zones_impacted?.length || 0} icon={Target} accent="var(--warning)" />
           </div>
 

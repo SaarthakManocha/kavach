@@ -14,7 +14,7 @@ const CustomTooltip = ({ active, payload }) => {
   );
 };
 
-export default function EnforcementChart({ data }) {
+export default function EnforcementChart({ data, onBarClick }) {
   if (!data || data.length === 0) return null;
 
   const avgRate = data.reduce((sum, d) => sum + d.enforcement_rate, 0) / data.length;
@@ -26,7 +26,13 @@ export default function EnforcementChart({ data }) {
     <div className="chart-card full-width">
       <h3>Enforcement Anomaly Analysis</h3>
       <ResponsiveContainer width="100%" height={Math.max(400, sorted.length * 28)}>
-        <BarChart data={sorted} layout="vertical" margin={{ top: 5, right: 30, left: 120, bottom: 5 }}>
+        <BarChart data={sorted} layout="vertical" margin={{ top: 5, right: 30, left: 120, bottom: 5 }}
+          onClick={(e) => {
+            if (e && e.activePayload && onBarClick) {
+              onBarClick(e.activePayload[0].payload.police_station);
+            }
+          }}
+        >
           <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" horizontal={false} />
           <XAxis
             type="number"
@@ -55,7 +61,7 @@ export default function EnforcementChart({ data }) {
               fontSize: 11,
             }}
           />
-          <Bar dataKey="enforcement_rate" radius={[0, 4, 4, 0]} barSize={18}>
+          <Bar dataKey="enforcement_rate" radius={[0, 4, 4, 0]} barSize={18} style={{ cursor: 'pointer' }}>
             {sorted.map((entry, i) => (
               <Cell
                 key={i}

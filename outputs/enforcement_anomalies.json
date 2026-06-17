@@ -6,7 +6,33 @@
     "approval_rate": 0.5859,
     "anomaly_score": -0.1905,
     "is_anomaly": true,
-    "rank": 1
+    "rank": 1,
+    "anomaly_reasons": [
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "31pp below average (85%)",
+        "shap_value": -0.1548,
+        "actual_value": 0.5474
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "11pp below average (70%)",
+        "shap_value": -0.0682,
+        "actual_value": 0.5859
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "high",
+        "detail": "2.0x the average (5,524)",
+        "shap_value": -0.0317,
+        "actual_value": 10916.0
+      }
+    ]
   },
   {
     "police_station": "Upparpet",
@@ -15,7 +41,33 @@
     "approval_rate": 0.7624,
     "anomaly_score": -0.1393,
     "is_anomaly": true,
-    "rank": 2
+    "rank": 2,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "high",
+        "detail": "6.2x the average (5,524)",
+        "shap_value": -0.2115,
+        "actual_value": 34468.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "1pp above average (85%)",
+        "shap_value": 0.0166,
+        "actual_value": 0.859
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "7pp above average (70%)",
+        "shap_value": -0.0085,
+        "actual_value": 0.7624
+      }
+    ]
   },
   {
     "police_station": "No Police Station",
@@ -24,7 +76,33 @@
     "approval_rate": 0.6081,
     "anomaly_score": -0.1077,
     "is_anomaly": true,
-    "rank": 3
+    "rank": 3,
+    "anomaly_reasons": [
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "23pp below average (85%)",
+        "shap_value": -0.1413,
+        "actual_value": 0.6213
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "9pp below average (70%)",
+        "shap_value": -0.0282,
+        "actual_value": 0.6081
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.1x the average (5,524)",
+        "shap_value": -0.0023,
+        "actual_value": 338.0
+      }
+    ]
   },
   {
     "police_station": "Shivajinagar",
@@ -33,7 +111,33 @@
     "approval_rate": 0.6607,
     "anomaly_score": -0.0783,
     "is_anomaly": true,
-    "rank": 4
+    "rank": 4,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "high",
+        "detail": "5.1x the average (5,524)",
+        "shap_value": -0.1645,
+        "actual_value": 28044.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "5pp above average (85%)",
+        "shap_value": 0.0121,
+        "actual_value": 0.9059
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "4pp below average (70%)",
+        "shap_value": 0.0101,
+        "actual_value": 0.6607
+      }
+    ]
   },
   {
     "police_station": "Hennuru",
@@ -42,7 +146,33 @@
     "approval_rate": 0.6682,
     "anomaly_score": -0.0573,
     "is_anomaly": true,
-    "rank": 5
+    "rank": 5,
+    "anomaly_reasons": [
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "19pp below average (85%)",
+        "shap_value": -0.1427,
+        "actual_value": 0.6592
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.2x the average (5,524)",
+        "shap_value": 0.0128,
+        "actual_value": 892.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "3pp below average (70%)",
+        "shap_value": 0.0086,
+        "actual_value": 0.6682
+      }
+    ]
   },
   {
     "police_station": "Malleshwaram",
@@ -51,7 +181,33 @@
     "approval_rate": 0.7333,
     "anomaly_score": -0.0293,
     "is_anomaly": true,
-    "rank": 6
+    "rank": 6,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "high",
+        "detail": "4.0x the average (5,524)",
+        "shap_value": -0.1277,
+        "actual_value": 22200.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "0pp below average (85%)",
+        "shap_value": 0.0201,
+        "actual_value": 0.8504
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "4pp above average (70%)",
+        "shap_value": 0.0141,
+        "actual_value": 0.7333
+      }
+    ]
   },
   {
     "police_station": "Hebbala",
@@ -60,7 +216,33 @@
     "approval_rate": 0.738,
     "anomaly_score": -0.0232,
     "is_anomaly": true,
-    "rank": 7
+    "rank": 7,
+    "anomaly_reasons": [
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "14pp below average (85%)",
+        "shap_value": -0.1276,
+        "actual_value": 0.717
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.6x the average (5,524)",
+        "shap_value": 0.0234,
+        "actual_value": 3209.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "4pp above average (70%)",
+        "shap_value": 0.0169,
+        "actual_value": 0.738
+      }
+    ]
   },
   {
     "police_station": "K.G. Halli",
@@ -69,7 +251,33 @@
     "approval_rate": 0.5828,
     "anomaly_score": -0.0155,
     "is_anomaly": true,
-    "rank": 8
+    "rank": 8,
+    "anomaly_reasons": [
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "11pp below average (70%)",
+        "shap_value": -0.1082,
+        "actual_value": 0.5828
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "4pp above average (85%)",
+        "shap_value": 0.0171,
+        "actual_value": 0.8957
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.2x the average (5,524)",
+        "shap_value": 0.0115,
+        "actual_value": 892.0
+      }
+    ]
   },
   {
     "police_station": "HAL Old Airport",
@@ -78,7 +286,33 @@
     "approval_rate": 0.6813,
     "anomaly_score": 0.0008,
     "is_anomaly": false,
-    "rank": 9
+    "rank": 9,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "high",
+        "detail": "3.8x the average (5,524)",
+        "shap_value": -0.105,
+        "actual_value": 20819.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "2pp below average (70%)",
+        "shap_value": 0.021,
+        "actual_value": 0.6813
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "1pp above average (85%)",
+        "shap_value": 0.0208,
+        "actual_value": 0.8685
+      }
+    ]
   },
   {
     "police_station": "Jnanabharathi",
@@ -87,7 +321,33 @@
     "approval_rate": 0.7858,
     "anomaly_score": 0.001,
     "is_anomaly": false,
-    "rank": 10
+    "rank": 10,
+    "anomaly_reasons": [
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "9pp above average (70%)",
+        "shap_value": -0.0578,
+        "actual_value": 0.7858
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "7pp above average (85%)",
+        "shap_value": -0.0183,
+        "actual_value": 0.9276
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.2x the average (5,524)",
+        "shap_value": 0.013,
+        "actual_value": 1063.0
+      }
+    ]
   },
   {
     "police_station": "Jeevanbheemanagar",
@@ -96,7 +356,33 @@
     "approval_rate": 0.7795,
     "anomaly_score": 0.014,
     "is_anomaly": false,
-    "rank": 11
+    "rank": 11,
+    "anomaly_reasons": [
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "8pp above average (70%)",
+        "shap_value": -0.0535,
+        "actual_value": 0.7795
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "4pp above average (85%)",
+        "shap_value": 0.0151,
+        "actual_value": 0.8912
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "high",
+        "detail": "1.2x the average (5,524)",
+        "shap_value": -0.0117,
+        "actual_value": 6736.0
+      }
+    ]
   },
   {
     "police_station": "Vijayanagara",
@@ -105,7 +391,33 @@
     "approval_rate": 0.6754,
     "anomaly_score": 0.0193,
     "is_anomaly": false,
-    "rank": 12
+    "rank": 12,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "high",
+        "detail": "2.7x the average (5,524)",
+        "shap_value": -0.061,
+        "actual_value": 14652.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "2pp below average (70%)",
+        "shap_value": 0.0194,
+        "actual_value": 0.6754
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "7pp above average (85%)",
+        "shap_value": -0.0033,
+        "actual_value": 0.92
+      }
+    ]
   },
   {
     "police_station": "Wilson Garden",
@@ -114,7 +426,33 @@
     "approval_rate": 0.7874,
     "anomaly_score": 0.0226,
     "is_anomaly": false,
-    "rank": 13
+    "rank": 13,
+    "anomaly_reasons": [
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "9pp above average (70%)",
+        "shap_value": -0.0606,
+        "actual_value": 0.7874
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.6x the average (5,524)",
+        "shap_value": 0.0286,
+        "actual_value": 3108.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "4pp below average (85%)",
+        "shap_value": -0.0094,
+        "actual_value": 0.8121
+      }
+    ]
   },
   {
     "police_station": "City Market",
@@ -123,7 +461,33 @@
     "approval_rate": 0.6753,
     "anomaly_score": 0.0264,
     "is_anomaly": false,
-    "rank": 14
+    "rank": 14,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "high",
+        "detail": "3.2x the average (5,524)",
+        "shap_value": -0.0794,
+        "actual_value": 17646.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "1pp above average (85%)",
+        "shap_value": 0.0219,
+        "actual_value": 0.8623
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "2pp below average (70%)",
+        "shap_value": 0.0198,
+        "actual_value": 0.6753
+      }
+    ]
   },
   {
     "police_station": "Electronic City",
@@ -132,7 +496,33 @@
     "approval_rate": 0.626,
     "anomaly_score": 0.0327,
     "is_anomaly": false,
-    "rank": 15
+    "rank": 15,
+    "anomaly_reasons": [
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "7pp below average (70%)",
+        "shap_value": -0.0268,
+        "actual_value": 0.626
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "5pp below average (85%)",
+        "shap_value": -0.0255,
+        "actual_value": 0.8073
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.8x the average (5,524)",
+        "shap_value": 0.0209,
+        "actual_value": 4333.0
+      }
+    ]
   },
   {
     "police_station": "Kengeri",
@@ -141,7 +531,33 @@
     "approval_rate": 0.7692,
     "anomaly_score": 0.0472,
     "is_anomaly": false,
-    "rank": 16
+    "rank": 16,
+    "anomaly_reasons": [
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "7pp above average (70%)",
+        "shap_value": -0.0184,
+        "actual_value": 0.7692
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "4pp above average (85%)",
+        "shap_value": 0.0131,
+        "actual_value": 0.8987
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.1x the average (5,524)",
+        "shap_value": -0.0116,
+        "actual_value": 464.0
+      }
+    ]
   },
   {
     "police_station": "Rajajinagar",
@@ -150,7 +566,33 @@
     "approval_rate": 0.6826,
     "anomaly_score": 0.0473,
     "is_anomaly": false,
-    "rank": 17
+    "rank": 17,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "high",
+        "detail": "2.0x the average (5,524)",
+        "shap_value": -0.038,
+        "actual_value": 10998.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "1pp below average (70%)",
+        "shap_value": 0.0219,
+        "actual_value": 0.6826
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "2pp below average (85%)",
+        "shap_value": -0.0007,
+        "actual_value": 0.8291
+      }
+    ]
   },
   {
     "police_station": "Byatarayanapura",
@@ -159,7 +601,33 @@
     "approval_rate": 0.621,
     "anomaly_score": 0.0491,
     "is_anomaly": false,
-    "rank": 18
+    "rank": 18,
+    "anomaly_reasons": [
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "8pp below average (70%)",
+        "shap_value": -0.0335,
+        "actual_value": 0.621
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.8x the average (5,524)",
+        "shap_value": 0.0184,
+        "actual_value": 4555.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "6pp above average (85%)",
+        "shap_value": 0.0001,
+        "actual_value": 0.9175
+      }
+    ]
   },
   {
     "police_station": "Peenya",
@@ -168,7 +636,33 @@
     "approval_rate": 0.6112,
     "anomaly_score": 0.0505,
     "is_anomaly": false,
-    "rank": 19
+    "rank": 19,
+    "anomaly_reasons": [
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "9pp below average (70%)",
+        "shap_value": -0.0453,
+        "actual_value": 0.6112
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "0pp below average (85%)",
+        "shap_value": 0.0172,
+        "actual_value": 0.8522
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.2x the average (5,524)",
+        "shap_value": 0.0145,
+        "actual_value": 974.0
+      }
+    ]
   },
   {
     "police_station": "Chikkabanavara",
@@ -177,7 +671,33 @@
     "approval_rate": 0.6335,
     "anomaly_score": 0.0604,
     "is_anomaly": false,
-    "rank": 20
+    "rank": 20,
+    "anomaly_reasons": [
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "6pp below average (70%)",
+        "shap_value": -0.0203,
+        "actual_value": 0.6335
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.1x the average (5,524)",
+        "shap_value": 0.0093,
+        "actual_value": 785.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "2pp below average (85%)",
+        "shap_value": 0.0073,
+        "actual_value": 0.8318
+      }
+    ]
   },
   {
     "police_station": "Madiwala",
@@ -186,7 +706,33 @@
     "approval_rate": 0.6127,
     "anomaly_score": 0.0673,
     "is_anomaly": false,
-    "rank": 21
+    "rank": 21,
+    "anomaly_reasons": [
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "8pp below average (70%)",
+        "shap_value": -0.0419,
+        "actual_value": 0.6127
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.3x the average (5,524)",
+        "shap_value": 0.0226,
+        "actual_value": 1563.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "3pp above average (85%)",
+        "shap_value": 0.0224,
+        "actual_value": 0.8791
+      }
+    ]
   },
   {
     "police_station": "Cubbon Park",
@@ -195,7 +741,33 @@
     "approval_rate": 0.7507,
     "anomaly_score": 0.0738,
     "is_anomaly": false,
-    "rank": 22
+    "rank": 22,
+    "anomaly_reasons": [
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "7pp below average (85%)",
+        "shap_value": -0.0338,
+        "actual_value": 0.7877
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.6x the average (5,524)",
+        "shap_value": 0.0298,
+        "actual_value": 3255.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "5pp above average (70%)",
+        "shap_value": 0.0136,
+        "actual_value": 0.7507
+      }
+    ]
   },
   {
     "police_station": "R.T. Nagar",
@@ -204,7 +776,33 @@
     "approval_rate": 0.7225,
     "anomaly_score": 0.0773,
     "is_anomaly": false,
-    "rank": 23
+    "rank": 23,
+    "anomaly_reasons": [
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "8pp above average (85%)",
+        "shap_value": -0.0291,
+        "actual_value": 0.9355
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.3x the average (5,524)",
+        "shap_value": 0.025,
+        "actual_value": 1736.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "3pp above average (70%)",
+        "shap_value": 0.0173,
+        "actual_value": 0.7225
+      }
+    ]
   },
   {
     "police_station": "Magadi Road",
@@ -213,7 +811,33 @@
     "approval_rate": 0.6596,
     "anomaly_score": 0.0811,
     "is_anomaly": false,
-    "rank": 24
+    "rank": 24,
+    "anomaly_reasons": [
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "6pp above average (85%)",
+        "shap_value": 0.0184,
+        "actual_value": 0.9094
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "high",
+        "detail": "1.5x the average (5,524)",
+        "shap_value": -0.0173,
+        "actual_value": 8558.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "4pp below average (70%)",
+        "shap_value": 0.0159,
+        "actual_value": 0.6596
+      }
+    ]
   },
   {
     "police_station": "Yelahanka",
@@ -222,7 +846,33 @@
     "approval_rate": 0.7003,
     "anomaly_score": 0.0843,
     "is_anomaly": false,
-    "rank": 25
+    "rank": 25,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.4x the average (5,524)",
+        "shap_value": 0.0265,
+        "actual_value": 2440.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "8pp above average (85%)",
+        "shap_value": -0.0215,
+        "actual_value": 0.9336
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "0pp above average (70%)",
+        "shap_value": 0.0152,
+        "actual_value": 0.7003
+      }
+    ]
   },
   {
     "police_station": "Thalagattapura",
@@ -231,7 +881,33 @@
     "approval_rate": 0.7673,
     "anomaly_score": 0.0868,
     "is_anomaly": false,
-    "rank": 26
+    "rank": 26,
+    "anomaly_reasons": [
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "1pp below average (85%)",
+        "shap_value": 0.0197,
+        "actual_value": 0.8425
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.2x the average (5,524)",
+        "shap_value": 0.0124,
+        "actual_value": 870.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "7pp above average (70%)",
+        "shap_value": -0.0093,
+        "actual_value": 0.7673
+      }
+    ]
   },
   {
     "police_station": "K.R. Pura",
@@ -240,7 +916,33 @@
     "approval_rate": 0.6482,
     "anomaly_score": 0.0874,
     "is_anomaly": false,
-    "rank": 27
+    "rank": 27,
+    "anomaly_reasons": [
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "0pp above average (85%)",
+        "shap_value": 0.0217,
+        "actual_value": 0.8561
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "high",
+        "detail": "1.2x the average (5,524)",
+        "shap_value": 0.0012,
+        "actual_value": 6546.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "5pp below average (70%)",
+        "shap_value": 0.0005,
+        "actual_value": 0.6482
+      }
+    ]
   },
   {
     "police_station": "HSR Layout",
@@ -249,7 +951,33 @@
     "approval_rate": 0.6425,
     "anomaly_score": 0.0905,
     "is_anomaly": false,
-    "rank": 28
+    "rank": 28,
+    "anomaly_reasons": [
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "0pp above average (85%)",
+        "shap_value": 0.0244,
+        "actual_value": 0.8579
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.9x the average (5,524)",
+        "shap_value": 0.0142,
+        "actual_value": 5018.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "5pp below average (70%)",
+        "shap_value": -0.0122,
+        "actual_value": 0.6425
+      }
+    ]
   },
   {
     "police_station": "K.S. Layout",
@@ -258,7 +986,33 @@
     "approval_rate": 0.7397,
     "anomaly_score": 0.0986,
     "is_anomaly": false,
-    "rank": 29
+    "rank": 29,
+    "anomaly_reasons": [
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "4pp above average (70%)",
+        "shap_value": 0.0221,
+        "actual_value": 0.7397
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.1x the average (5,524)",
+        "shap_value": 0.0099,
+        "actual_value": 828.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "3pp below average (85%)",
+        "shap_value": 0.0026,
+        "actual_value": 0.8213
+      }
+    ]
   },
   {
     "police_station": "Whitefield",
@@ -267,7 +1021,33 @@
     "approval_rate": 0.6429,
     "anomaly_score": 0.0999,
     "is_anomaly": false,
-    "rank": 30
+    "rank": 30,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.4x the average (5,524)",
+        "shap_value": 0.0258,
+        "actual_value": 2303.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "4pp above average (85%)",
+        "shap_value": 0.0207,
+        "actual_value": 0.8975
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "5pp below average (70%)",
+        "shap_value": -0.0106,
+        "actual_value": 0.6429
+      }
+    ]
   },
   {
     "police_station": "Mico Layout",
@@ -276,7 +1056,33 @@
     "approval_rate": 0.7703,
     "anomaly_score": 0.1023,
     "is_anomaly": false,
-    "rank": 31
+    "rank": 31,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.5x the average (5,524)",
+        "shap_value": 0.0294,
+        "actual_value": 2588.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "2pp above average (85%)",
+        "shap_value": 0.0222,
+        "actual_value": 0.8694
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "7pp above average (70%)",
+        "shap_value": -0.0134,
+        "actual_value": 0.7703
+      }
+    ]
   },
   {
     "police_station": "Devanahalli Airport",
@@ -285,7 +1091,33 @@
     "approval_rate": 0.6608,
     "anomaly_score": 0.1049,
     "is_anomaly": false,
-    "rank": 32
+    "rank": 32,
+    "anomaly_reasons": [
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "4pp above average (85%)",
+        "shap_value": 0.0199,
+        "actual_value": 0.8978
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "4pp below average (70%)",
+        "shap_value": 0.014,
+        "actual_value": 0.6608
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.1x the average (5,524)",
+        "shap_value": 0.007,
+        "actual_value": 773.0
+      }
+    ]
   },
   {
     "police_station": "Banashankari",
@@ -294,7 +1126,33 @@
     "approval_rate": 0.7443,
     "anomaly_score": 0.1055,
     "is_anomaly": false,
-    "rank": 33
+    "rank": 33,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.2x the average (5,524)",
+        "shap_value": 0.0198,
+        "actual_value": 1202.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "5pp above average (70%)",
+        "shap_value": 0.019,
+        "actual_value": 0.7443
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "3pp below average (85%)",
+        "shap_value": 0.0026,
+        "actual_value": 0.822
+      }
+    ]
   },
   {
     "police_station": "High ground",
@@ -303,7 +1161,33 @@
     "approval_rate": 0.758,
     "anomaly_score": 0.1083,
     "is_anomaly": false,
-    "rank": 34
+    "rank": 34,
+    "anomaly_reasons": [
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "0pp above average (85%)",
+        "shap_value": 0.0249,
+        "actual_value": 0.8584
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.9x the average (5,524)",
+        "shap_value": 0.0175,
+        "actual_value": 4951.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "6pp above average (70%)",
+        "shap_value": 0.0018,
+        "actual_value": 0.758
+      }
+    ]
   },
   {
     "police_station": "Chikkajala",
@@ -312,7 +1196,33 @@
     "approval_rate": 0.689,
     "anomaly_score": 0.1102,
     "is_anomaly": false,
-    "rank": 35
+    "rank": 35,
+    "anomaly_reasons": [
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "1pp below average (70%)",
+        "shap_value": 0.0214,
+        "actual_value": 0.689
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "6pp above average (85%)",
+        "shap_value": 0.0135,
+        "actual_value": 0.911
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "high",
+        "detail": "1.1x the average (5,524)",
+        "shap_value": 0.0112,
+        "actual_value": 5834.0
+      }
+    ]
   },
   {
     "police_station": "Mahadevapura",
@@ -321,7 +1231,33 @@
     "approval_rate": 0.6855,
     "anomaly_score": 0.1123,
     "is_anomaly": false,
-    "rank": 36
+    "rank": 36,
+    "anomaly_reasons": [
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "1pp below average (70%)",
+        "shap_value": 0.0218,
+        "actual_value": 0.6855
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "1pp below average (85%)",
+        "shap_value": 0.0185,
+        "actual_value": 0.8429
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "high",
+        "detail": "1.1x the average (5,524)",
+        "shap_value": 0.008,
+        "actual_value": 6187.0
+      }
+    ]
   },
   {
     "police_station": "Basavanagudi",
@@ -330,7 +1266,33 @@
     "approval_rate": 0.7523,
     "anomaly_score": 0.1125,
     "is_anomaly": false,
-    "rank": 37
+    "rank": 37,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.7x the average (5,524)",
+        "shap_value": 0.0293,
+        "actual_value": 3604.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "6pp above average (70%)",
+        "shap_value": 0.0139,
+        "actual_value": 0.7523
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "3pp below average (85%)",
+        "shap_value": 0.0051,
+        "actual_value": 0.8241
+      }
+    ]
   },
   {
     "police_station": "Pulikeshinagar(F.Town)",
@@ -339,7 +1301,33 @@
     "approval_rate": 0.6514,
     "anomaly_score": 0.1125,
     "is_anomaly": false,
-    "rank": 38
+    "rank": 38,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.7x the average (5,524)",
+        "shap_value": 0.0227,
+        "actual_value": 4136.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "5pp above average (85%)",
+        "shap_value": 0.0187,
+        "actual_value": 0.9055
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "5pp below average (70%)",
+        "shap_value": 0.0069,
+        "actual_value": 0.6514
+      }
+    ]
   },
   {
     "police_station": "J.P. Nagar",
@@ -348,7 +1336,33 @@
     "approval_rate": 0.6606,
     "anomaly_score": 0.1129,
     "is_anomaly": false,
-    "rank": 39
+    "rank": 39,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.3x the average (5,524)",
+        "shap_value": 0.0228,
+        "actual_value": 1637.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "6pp above average (85%)",
+        "shap_value": 0.0133,
+        "actual_value": 0.912
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "4pp below average (70%)",
+        "shap_value": 0.0127,
+        "actual_value": 0.6606
+      }
+    ]
   },
   {
     "police_station": "Halasuru Gate",
@@ -357,7 +1371,33 @@
     "approval_rate": 0.681,
     "anomaly_score": 0.1135,
     "is_anomaly": false,
-    "rank": 40
+    "rank": 40,
+    "anomaly_reasons": [
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "2pp below average (70%)",
+        "shap_value": 0.0253,
+        "actual_value": 0.681
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "5pp above average (85%)",
+        "shap_value": 0.0173,
+        "actual_value": 0.9012
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "high",
+        "detail": "1.1x the average (5,524)",
+        "shap_value": 0.0068,
+        "actual_value": 6294.0
+      }
+    ]
   },
   {
     "police_station": "Jalahalli",
@@ -366,7 +1406,33 @@
     "approval_rate": 0.6688,
     "anomaly_score": 0.1169,
     "is_anomaly": false,
-    "rank": 41
+    "rank": 41,
+    "anomaly_reasons": [
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "5pp above average (85%)",
+        "shap_value": 0.0195,
+        "actual_value": 0.9009
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.2x the average (5,524)",
+        "shap_value": 0.018,
+        "actual_value": 1160.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "3pp below average (70%)",
+        "shap_value": 0.0153,
+        "actual_value": 0.6688
+      }
+    ]
   },
   {
     "police_station": "Bellandur",
@@ -375,7 +1441,33 @@
     "approval_rate": 0.6929,
     "anomaly_score": 0.1186,
     "is_anomaly": false,
-    "rank": 42
+    "rank": 42,
+    "anomaly_reasons": [
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "1pp below average (85%)",
+        "shap_value": 0.0202,
+        "actual_value": 0.8473
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "0pp below average (70%)",
+        "shap_value": 0.0178,
+        "actual_value": 0.6929
+      },
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.9x the average (5,524)",
+        "shap_value": 0.0165,
+        "actual_value": 4964.0
+      }
+    ]
   },
   {
     "police_station": "Banaswadi",
@@ -384,7 +1476,33 @@
     "approval_rate": 0.6977,
     "anomaly_score": 0.1202,
     "is_anomaly": false,
-    "rank": 43
+    "rank": 43,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.7x the average (5,524)",
+        "shap_value": 0.0273,
+        "actual_value": 3759.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "5pp above average (85%)",
+        "shap_value": 0.0154,
+        "actual_value": 0.9021
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "0pp above average (70%)",
+        "shap_value": 0.0134,
+        "actual_value": 0.6977
+      }
+    ]
   },
   {
     "police_station": "Yeshwanthpura",
@@ -393,7 +1511,33 @@
     "approval_rate": 0.7283,
     "anomaly_score": 0.1222,
     "is_anomaly": false,
-    "rank": 44
+    "rank": 44,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.5x the average (5,524)",
+        "shap_value": 0.0303,
+        "actual_value": 2587.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "3pp above average (70%)",
+        "shap_value": 0.0206,
+        "actual_value": 0.7283
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "6pp above average (85%)",
+        "shap_value": 0.0072,
+        "actual_value": 0.913
+      }
+    ]
   },
   {
     "police_station": "Hulimavu",
@@ -402,7 +1546,33 @@
     "approval_rate": 0.6957,
     "anomaly_score": 0.1228,
     "is_anomaly": false,
-    "rank": 45
+    "rank": 45,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.4x the average (5,524)",
+        "shap_value": 0.0255,
+        "actual_value": 2395.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "1pp below average (85%)",
+        "shap_value": 0.0179,
+        "actual_value": 0.8447
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "0pp below average (70%)",
+        "shap_value": 0.0154,
+        "actual_value": 0.6957
+      }
+    ]
   },
   {
     "police_station": "Chamarajpet",
@@ -411,7 +1581,33 @@
     "approval_rate": 0.674,
     "anomaly_score": 0.1236,
     "is_anomaly": false,
-    "rank": 46
+    "rank": 46,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.7x the average (5,524)",
+        "shap_value": 0.0258,
+        "actual_value": 3795.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "0pp above average (85%)",
+        "shap_value": 0.0224,
+        "actual_value": 0.8567
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "low",
+        "detail": "2pp below average (70%)",
+        "shap_value": 0.0114,
+        "actual_value": 0.674
+      }
+    ]
   },
   {
     "police_station": "V.V.Puram (C.Pet)",
@@ -420,7 +1616,33 @@
     "approval_rate": 0.7232,
     "anomaly_score": 0.1244,
     "is_anomaly": false,
-    "rank": 47
+    "rank": 47,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.3x the average (5,524)",
+        "shap_value": 0.0247,
+        "actual_value": 1556.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "4pp above average (85%)",
+        "shap_value": 0.0182,
+        "actual_value": 0.8927
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "3pp above average (70%)",
+        "shap_value": 0.0174,
+        "actual_value": 0.7232
+      }
+    ]
   },
   {
     "police_station": "Sadashivanagar",
@@ -429,7 +1651,33 @@
     "approval_rate": 0.7356,
     "anomaly_score": 0.1259,
     "is_anomaly": false,
-    "rank": 48
+    "rank": 48,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.3x the average (5,524)",
+        "shap_value": 0.025,
+        "actual_value": 1445.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "4pp above average (70%)",
+        "shap_value": 0.0246,
+        "actual_value": 0.7356
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "2pp below average (85%)",
+        "shap_value": 0.0123,
+        "actual_value": 0.8325
+      }
+    ]
   },
   {
     "police_station": "Kamakshipalya",
@@ -438,7 +1686,33 @@
     "approval_rate": 0.7264,
     "anomaly_score": 0.1286,
     "is_anomaly": false,
-    "rank": 49
+    "rank": 49,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.3x the average (5,524)",
+        "shap_value": 0.024,
+        "actual_value": 1431.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "2pp above average (85%)",
+        "shap_value": 0.0205,
+        "actual_value": 0.8777
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "3pp above average (70%)",
+        "shap_value": 0.02,
+        "actual_value": 0.7264
+      }
+    ]
   },
   {
     "police_station": "Halasur",
@@ -447,7 +1721,33 @@
     "approval_rate": 0.7449,
     "anomaly_score": 0.1288,
     "is_anomaly": false,
-    "rank": 50
+    "rank": 50,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.7x the average (5,524)",
+        "shap_value": 0.0278,
+        "actual_value": 4011.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "2pp above average (85%)",
+        "shap_value": 0.0218,
+        "actual_value": 0.8716
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "5pp above average (70%)",
+        "shap_value": 0.0151,
+        "actual_value": 0.7449
+      }
+    ]
   },
   {
     "police_station": "Sheshadripuram",
@@ -456,7 +1756,33 @@
     "approval_rate": 0.7386,
     "anomaly_score": 0.1338,
     "is_anomaly": false,
-    "rank": 51
+    "rank": 51,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.6x the average (5,524)",
+        "shap_value": 0.0314,
+        "actual_value": 3090.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "4pp above average (70%)",
+        "shap_value": 0.0221,
+        "actual_value": 0.7386
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "high",
+        "detail": "3pp above average (85%)",
+        "shap_value": 0.0162,
+        "actual_value": 0.8861
+      }
+    ]
   },
   {
     "police_station": "Jayanagara",
@@ -465,7 +1791,33 @@
     "approval_rate": 0.7299,
     "anomaly_score": 0.1376,
     "is_anomaly": false,
-    "rank": 52
+    "rank": 52,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.7x the average (5,524)",
+        "shap_value": 0.0295,
+        "actual_value": 3813.0
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "0pp below average (85%)",
+        "shap_value": 0.0231,
+        "actual_value": 0.8523
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "3pp above average (70%)",
+        "shap_value": 0.0209,
+        "actual_value": 0.7299
+      }
+    ]
   },
   {
     "police_station": "Ashok Nagar",
@@ -474,7 +1826,33 @@
     "approval_rate": 0.7411,
     "anomaly_score": 0.1409,
     "is_anomaly": false,
-    "rank": 53
+    "rank": 53,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.6x the average (5,524)",
+        "shap_value": 0.0306,
+        "actual_value": 3524.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "4pp above average (70%)",
+        "shap_value": 0.0235,
+        "actual_value": 0.7411
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "1pp below average (85%)",
+        "shap_value": 0.0227,
+        "actual_value": 0.8448
+      }
+    ]
   },
   {
     "police_station": "Adugodi",
@@ -483,6 +1861,32 @@
     "approval_rate": 0.7344,
     "anomaly_score": 0.1442,
     "is_anomaly": false,
-    "rank": 54
+    "rank": 54,
+    "anomaly_reasons": [
+      {
+        "factor": "Violation Volume",
+        "feature": "total_violations",
+        "direction": "low",
+        "detail": "0.6x the average (5,524)",
+        "shap_value": 0.0312,
+        "actual_value": 3332.0
+      },
+      {
+        "factor": "Approval Rate",
+        "feature": "approval_rate",
+        "direction": "high",
+        "detail": "4pp above average (70%)",
+        "shap_value": 0.0256,
+        "actual_value": 0.7344
+      },
+      {
+        "factor": "Enforcement Rate",
+        "feature": "enforcement_rate",
+        "direction": "low",
+        "detail": "1pp below average (85%)",
+        "shap_value": 0.0233,
+        "actual_value": 0.8472
+      }
+    ]
   }
 ]
