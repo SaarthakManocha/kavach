@@ -356,6 +356,18 @@ def patrol_itineraries():
     return {"unit_itineraries": [], "fleet_summary": {}}
 
 
+@app.get("/api/weather-sensitivity")
+def weather_sensitivity():
+    """Returns weather-violation correlation analysis.
+
+    Source: outputs/weather_sensitivity.json (produced by module_weather.py)
+    """
+    data = load_json_or_mock("weather_sensitivity.json", {
+        "city_summary": {}, "zones": [], "hourly_shift": [], "vehicle_impact": []
+    })
+    return data
+
+
 @app.get("/api/enforcement")
 def enforcement():
     """Returns per-station enforcement anomaly analysis.

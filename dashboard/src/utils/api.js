@@ -21,3 +21,6 @@ export const fetchCounterfactual = (rate) =>
 export const fetchArchetypes = () =>
   fetch(`${API_BASE}/archetypes`).then(r => r.json());
 
+export const fetchWeatherSensitivity = () =>
+  fetch(`${API_BASE}/weather-sensitivity`).then(r => r.json());
+

@@ -3,7 +3,7 @@ import {
   LayoutDashboard, Radio, Map, AlertTriangle,
   BarChart3, TrendingUp, Waypoints, ShieldCheck,
   CalendarClock, FlaskConical, Target, Settings,
-  ChevronLeft, ChevronRight, Shield
+  ChevronLeft, ChevronRight, Shield, CloudRain
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -29,6 +29,7 @@ const NAV_SECTIONS = [
       { to: '/analytics/enforcement', icon: ShieldCheck, label: 'Enforcement Analysis' },
       { to: '/analytics/trends', icon: TrendingUp, label: 'Violation Trends' },
       { to: '/analytics/archetypes', icon: Waypoints, label: 'Junction Archetypes' },
+      { to: '/analytics/weather', icon: CloudRain, label: 'Weather Sensitivity' },
     ]
   },
   {

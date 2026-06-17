@@ -13,6 +13,7 @@ import ArchetypesPage from './components/pages/ArchetypesPage';
 import DeploymentPage from './components/pages/DeploymentPage';
 import SimulationLab from './components/pages/SimulationLab';
 import ImpactPage from './components/pages/ImpactPage';
+import WeatherPage from './components/pages/WeatherPage';
 
 function AppLayout({ children }) {
   return (
@@ -46,6 +47,7 @@ export default function App() {
         <Route path="/analytics/enforcement" element={<AppLayout><EnforcementPage /></AppLayout>} />
         <Route path="/analytics/trends" element={<AppLayout><TrendsPage /></AppLayout>} />
         <Route path="/analytics/archetypes" element={<AppLayout><ArchetypesPage /></AppLayout>} />
+        <Route path="/analytics/weather" element={<AppLayout><WeatherPage /></AppLayout>} />
 
         <Route path="/patrol/deployment" element={<AppLayout><DeploymentPage /></AppLayout>} />
         <Route path="/patrol/simulation" element={<AppLayout><SimulationLab /></AppLayout>} />
