@@ -8795,7 +8795,7 @@
     "predicted_score_6h": 0.0,
     "severity": "low",
     "rank": 400,
-    "display_name": "Attur Layout",
+    "display_name": "Attur Layout (Sahakaranagar)",
     "primary_station": "Yelahanka",
     "station_enforcement_rate": 0.9336
   },
@@ -15241,7 +15241,7 @@
     "predicted_score_6h": 0.0,
     "severity": "low",
     "rank": 693,
-    "display_name": "Attur",
+    "display_name": "Attur (Sahakaranagar)",
     "primary_station": "Yelahanka",
     "station_enforcement_rate": 0.9336
   },
