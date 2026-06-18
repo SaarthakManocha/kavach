@@ -25,5 +25,3 @@ dashboard/node_modules/
 dashboard/dist/
 
 cache/
-outputs/cascade_data.json
-outputs/spillover_data.json

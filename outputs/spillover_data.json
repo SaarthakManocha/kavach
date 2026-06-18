@@ -1,0 +1,1091 @@
+{
+  "total_spillover_events": 94,
+  "unique_primary_zones": 37,
+  "propagation_chains": [
+    {
+      "primary_zone": "tdr1tr",
+      "secondary_zones": [
+        "tdr1v2"
+      ],
+      "tertiary_zones": [
+        "tdr1v3"
+      ],
+      "total_spillover_events": 14
+    },
+    {
+      "primary_zone": "tdr1vg",
+      "secondary_zones": [
+        "tdr1y5",
+        "tdr1vf"
+      ],
+      "tertiary_zones": [
+        "tdr1y4"
+      ],
+      "total_spillover_events": 9
+    },
+    {
+      "primary_zone": "tdr1v6",
+      "secondary_zones": [
+        "tdr1v3",
+        "tdr1v4"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 8
+    },
+    {
+      "primary_zone": "tdr1y5",
+      "secondary_zones": [
+        "tdr1vg",
+        "tdr1y4"
+      ],
+      "tertiary_zones": [
+        "tdr1vf"
+      ],
+      "total_spillover_events": 7
+    },
+    {
+      "primary_zone": "tdr1v2",
+      "secondary_zones": [
+        "tdr1tr",
+        "tdr1v3"
+      ],
+      "tertiary_zones": [
+        "tdr1v6"
+      ],
+      "total_spillover_events": 7
+    },
+    {
+      "primary_zone": "tdr4pb",
+      "secondary_zones": [
+        "tdr600"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 4
+    },
+    {
+      "primary_zone": "tdr600",
+      "secondary_zones": [
+        "tdr4pb"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 4
+    },
+    {
+      "primary_zone": "tdr1v4",
+      "secondary_zones": [
+        "tdr1v6"
+      ],
+      "tertiary_zones": [
+        "tdr1v3"
+      ],
+      "total_spillover_events": 4
+    },
+    {
+      "primary_zone": "tdr1vf",
+      "secondary_zones": [
+        "tdr1y5",
+        "tdr1vg"
+      ],
+      "tertiary_zones": [
+        "tdr1y4"
+      ],
+      "total_spillover_events": 3
+    },
+    {
+      "primary_zone": "tdr1y4",
+      "secondary_zones": [
+        "tdr1y5"
+      ],
+      "tertiary_zones": [
+        "tdr1vg"
+      ],
+      "total_spillover_events": 3
+    },
+    {
+      "primary_zone": "tdr1vs",
+      "secondary_zones": [
+        "tdr1vt"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 2
+    },
+    {
+      "primary_zone": "tdr3b8",
+      "secondary_zones": [
+        "tdr38x",
+        "tdr3b2"
+      ],
+      "tertiary_zones": [
+        "tdr38r"
+      ],
+      "total_spillover_events": 2
+    },
+    {
+      "primary_zone": "tdr1vt",
+      "secondary_zones": [
+        "tdr1vs"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 2
+    },
+    {
+      "primary_zone": "tdr1zv",
+      "secondary_zones": [
+        "tdr3bj"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 2
+    },
+    {
+      "primary_zone": "tdr1vp",
+      "secondary_zones": [
+        "tdr4j0"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr1qy",
+      "secondary_zones": [
+        "tdr1qv"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr1qv",
+      "secondary_zones": [
+        "tdr1qy"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr1v9",
+      "secondary_zones": [
+        "tdr1vc"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr38h",
+      "secondary_zones": [
+        "tdr38j"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr1u3",
+      "secondary_zones": [
+        "tdr1u2"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr1w3",
+      "secondary_zones": [
+        "tdr1w2"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr4nk",
+      "secondary_zones": [
+        "tdr4nm"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr3b2",
+      "secondary_zones": [
+        "tdr3b8"
+      ],
+      "tertiary_zones": [
+        "tdr38x"
+      ],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr38x",
+      "secondary_zones": [
+        "tdr38r"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr1ug",
+      "secondary_zones": [
+        "tdr1uu"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr4h8",
+      "secondary_zones": [
+        "tdr4hb"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr1y7",
+      "secondary_zones": [
+        "tdr1ye"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr1v1",
+      "secondary_zones": [
+        "tdr1v6"
+      ],
+      "tertiary_zones": [
+        "tdr1v3",
+        "tdr1v4"
+      ],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr38n",
+      "secondary_zones": [
+        "tdr38p"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr1xr",
+      "secondary_zones": [
+        "tdr1xq"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr1xq",
+      "secondary_zones": [
+        "tdr1xr"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr1y6",
+      "secondary_zones": [
+        "tdr1ye"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr1yd",
+      "secondary_zones": [
+        "tdr1yf"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr1yf",
+      "secondary_zones": [
+        "tdr1yd"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr1zm",
+      "secondary_zones": [
+        "tdr1zq"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr3bj",
+      "secondary_zones": [
+        "tdr1zv"
+      ],
+      "tertiary_zones": [],
+      "total_spillover_events": 1
+    },
+    {
+      "primary_zone": "tdr1v3",
+      "secondary_zones": [
+        "tdr1v6"
+      ],
+      "tertiary_zones": [
+        "tdr1v4"
+      ],
+      "total_spillover_events": 1
+    }
+  ],
+  "sample_events": [
+    {
+      "timestamp": "2023-11-11 03:30:00+00:00",
+      "primary_zone": "tdr1vg",
+      "secondary_zone": "tdr1y5",
+      "distance_m": 121.0,
+      "primary_size": 43,
+      "secondary_size": 10
+    },
+    {
+      "timestamp": "2023-11-12 02:30:00+00:00",
+      "primary_zone": "tdr1vp",
+      "secondary_zone": "tdr4j0",
+      "distance_m": 146.4,
+      "primary_size": 16,
+      "secondary_size": 7
+    },
+    {
+      "timestamp": "2023-11-12 03:00:00+00:00",
+      "primary_zone": "tdr1y5",
+      "secondary_zone": "tdr1vg",
+      "distance_m": 183.6,
+      "primary_size": 42,
+      "secondary_size": 21
+    },
+    {
+      "timestamp": "2023-11-12 04:30:00+00:00",
+      "primary_zone": "tdr1qy",
+      "secondary_zone": "tdr1qv",
+      "distance_m": 152.1,
+      "primary_size": 46,
+      "secondary_size": 22
+    },
+    {
+      "timestamp": "2023-11-12 05:00:00+00:00",
+      "primary_zone": "tdr1qv",
+      "secondary_zone": "tdr1qy",
+      "distance_m": 157.4,
+      "primary_size": 22,
+      "secondary_size": 27
+    },
+    {
+      "timestamp": "2023-11-13 06:00:00+00:00",
+      "primary_zone": "tdr1v6",
+      "secondary_zone": "tdr1v4",
+      "distance_m": 196.8,
+      "primary_size": 20,
+      "secondary_size": 6
+    },
+    {
+      "timestamp": "2023-11-14 03:00:00+00:00",
+      "primary_zone": "tdr1vg",
+      "secondary_zone": "tdr1y5",
+      "distance_m": 159.9,
+      "primary_size": 27,
+      "secondary_size": 15
+    },
+    {
+      "timestamp": "2023-11-16 06:00:00+00:00",
+      "primary_zone": "tdr1y5",
+      "secondary_zone": "tdr1vg",
+      "distance_m": 141.8,
+      "primary_size": 27,
+      "secondary_size": 9
+    },
+    {
+      "timestamp": "2023-11-17 02:00:00+00:00",
+      "primary_zone": "tdr1vf",
+      "secondary_zone": "tdr1vg",
+      "distance_m": 149.5,
+      "primary_size": 16,
+      "secondary_size": 55
+    },
+    {
+      "timestamp": "2023-11-17 02:30:00+00:00",
+      "primary_zone": "tdr1vg",
+      "secondary_zone": "tdr1y5",
+      "distance_m": 118.7,
+      "primary_size": 55,
+      "secondary_size": 46
+    },
+    {
+      "timestamp": "2023-11-17 22:30:00+00:00",
+      "primary_zone": "tdr1vs",
+      "secondary_zone": "tdr1vt",
+      "distance_m": 26.9,
+      "primary_size": 15,
+      "secondary_size": 6
+    },
+    {
+      "timestamp": "2023-11-18 05:00:00+00:00",
+      "primary_zone": "tdr1vg",
+      "secondary_zone": "tdr1y5",
+      "distance_m": 189.0,
+      "primary_size": 63,
+      "secondary_size": 47
+    },
+    {
+      "timestamp": "2023-11-18 05:30:00+00:00",
+      "primary_zone": "tdr1y5",
+      "secondary_zone": "tdr1vg",
+      "distance_m": 136.5,
+      "primary_size": 47,
+      "secondary_size": 42
+    },
+    {
+      "timestamp": "2023-11-18 06:00:00+00:00",
+      "primary_zone": "tdr1vg",
+      "secondary_zone": "tdr1y5",
+      "distance_m": 189.7,
+      "primary_size": 42,
+      "secondary_size": 57
+    },
+    {
+      "timestamp": "2023-11-19 03:30:00+00:00",
+      "primary_zone": "tdr1y5",
+      "secondary_zone": "tdr1y4",
+      "distance_m": 183.6,
+      "primary_size": 27,
+      "secondary_size": 23
+    },
+    {
+      "timestamp": "2023-11-19 04:00:00+00:00",
+      "primary_zone": "tdr1y4",
+      "secondary_zone": "tdr1y5",
+      "distance_m": 196.2,
+      "primary_size": 23,
+      "secondary_size": 33
+    },
+    {
+      "timestamp": "2023-11-20 19:30:00+00:00",
+      "primary_zone": "tdr4pb",
+      "secondary_zone": "tdr600",
+      "distance_m": 192.4,
+      "primary_size": 19,
+      "secondary_size": 10
+    },
+    {
+      "timestamp": "2023-11-29 05:30:00+00:00",
+      "primary_zone": "tdr1v9",
+      "secondary_zone": "tdr1vc",
+      "distance_m": 79.4,
+      "primary_size": 19,
+      "secondary_size": 7
+    },
+    {
+      "timestamp": "2023-12-06 02:00:00+00:00",
+      "primary_zone": "tdr1v2",
+      "secondary_zone": "tdr1tr",
+      "distance_m": 169.4,
+      "primary_size": 18,
+      "secondary_size": 17
+    },
+    {
+      "timestamp": "2023-12-09 01:30:00+00:00",
+      "primary_zone": "tdr3b8",
+      "secondary_zone": "tdr3b2",
+      "distance_m": 116.7,
+      "primary_size": 16,
+      "secondary_size": 13
+    },
+    {
+      "timestamp": "2023-12-13 17:30:00+00:00",
+      "primary_zone": "tdr600",
+      "secondary_zone": "tdr4pb",
+      "distance_m": 52.0,
+      "primary_size": 19,
+      "secondary_size": 16
+    },
+    {
+      "timestamp": "2023-12-17 17:30:00+00:00",
+      "primary_zone": "tdr1tr",
+      "secondary_zone": "tdr1v2",
+      "distance_m": 90.6,
+      "primary_size": 32,
+      "secondary_size": 19
+    },
+    {
+      "timestamp": "2023-12-18 02:30:00+00:00",
+      "primary_zone": "tdr38h",
+      "secondary_zone": "tdr38j",
+      "distance_m": 131.9,
+      "primary_size": 20,
+      "secondary_size": 37
+    },
+    {
+      "timestamp": "2023-12-20 21:00:00+00:00",
+      "primary_zone": "tdr1vt",
+      "secondary_zone": "tdr1vs",
+      "distance_m": 32.4,
+      "primary_size": 16,
+      "secondary_size": 15
+    },
+    {
+      "timestamp": "2023-12-20 23:30:00+00:00",
+      "primary_zone": "tdr1u3",
+      "secondary_zone": "tdr1u2",
+      "distance_m": 136.8,
+      "primary_size": 22,
+      "secondary_size": 22
+    },
+    {
+      "timestamp": "2023-12-22 04:30:00+00:00",
+      "primary_zone": "tdr1w3",
+      "secondary_zone": "tdr1w2",
+      "distance_m": 97.8,
+      "primary_size": 34,
+      "secondary_size": 8
+    },
+    {
+      "timestamp": "2023-12-22 19:00:00+00:00",
+      "primary_zone": "tdr4pb",
+      "secondary_zone": "tdr600",
+      "distance_m": 58.4,
+      "primary_size": 20,
+      "secondary_size": 5
+    },
+    {
+      "timestamp": "2023-12-25 04:30:00+00:00",
+      "primary_zone": "tdr1vg",
+      "secondary_zone": "tdr1y5",
+      "distance_m": 54.6,
+      "primary_size": 19,
+      "secondary_size": 19
+    },
+    {
+      "timestamp": "2024-01-02 04:30:00+00:00",
+      "primary_zone": "tdr1v6",
+      "secondary_zone": "tdr1v3",
+      "distance_m": 164.8,
+      "primary_size": 21,
+      "secondary_size": 8
+    },
+    {
+      "timestamp": "2024-01-03 19:00:00+00:00",
+      "primary_zone": "tdr1v2",
+      "secondary_zone": "tdr1tr",
+      "distance_m": 25.8,
+      "primary_size": 16,
+      "secondary_size": 9
+    },
+    {
+      "timestamp": "2024-01-03 22:00:00+00:00",
+      "primary_zone": "tdr4nk",
+      "secondary_zone": "tdr4nm",
+      "distance_m": 171.4,
+      "primary_size": 17,
+      "secondary_size": 6
+    },
+    {
+      "timestamp": "2024-01-04 05:30:00+00:00",
+      "primary_zone": "tdr1v6",
+      "secondary_zone": "tdr1v4",
+      "distance_m": 166.6,
+      "primary_size": 15,
+      "secondary_size": 5
+    },
+    {
+      "timestamp": "2024-01-04 22:30:00+00:00",
+      "primary_zone": "tdr1v6",
+      "secondary_zone": "tdr1v4",
+      "distance_m": 152.4,
+      "primary_size": 21,
+      "secondary_size": 7
+    },
+    {
+      "timestamp": "2024-01-05 04:30:00+00:00",
+      "primary_zone": "tdr1v4",
+      "secondary_zone": "tdr1v6",
+      "distance_m": 169.4,
+      "primary_size": 18,
+      "secondary_size": 11
+    },
+    {
+      "timestamp": "2024-01-05 09:00:00+00:00",
+      "primary_zone": "tdr1y5",
+      "secondary_zone": "tdr1vg",
+      "distance_m": 178.6,
+      "primary_size": 30,
+      "secondary_size": 5
+    },
+    {
+      "timestamp": "2024-01-08 06:00:00+00:00",
+      "primary_zone": "tdr600",
+      "secondary_zone": "tdr4pb",
+      "distance_m": 156.8,
+      "primary_size": 18,
+      "secondary_size": 17
+    },
+    {
+      "timestamp": "2024-01-08 22:30:00+00:00",
+      "primary_zone": "tdr3b8",
+      "secondary_zone": "tdr38x",
+      "distance_m": 64.0,
+      "primary_size": 31,
+      "secondary_size": 5
+    },
+    {
+      "timestamp": "2024-01-13 20:00:00+00:00",
+      "primary_zone": "tdr1tr",
+      "secondary_zone": "tdr1v2",
+      "distance_m": 72.4,
+      "primary_size": 16,
+      "secondary_size": 11
+    },
+    {
+      "timestamp": "2024-01-15 03:00:00+00:00",
+      "primary_zone": "tdr3b2",
+      "secondary_zone": "tdr3b8",
+      "distance_m": 185.0,
+      "primary_size": 17,
+      "secondary_size": 10
+    },
+    {
+      "timestamp": "2024-01-20 02:00:00+00:00",
+      "primary_zone": "tdr1vs",
+      "secondary_zone": "tdr1vt",
+      "distance_m": 13.9,
+      "primary_size": 16,
+      "secondary_size": 7
+    },
+    {
+      "timestamp": "2024-01-21 04:00:00+00:00",
+      "primary_zone": "tdr1y4",
+      "secondary_zone": "tdr1y5",
+      "distance_m": 69.3,
+      "primary_size": 27,
+      "secondary_size": 22
+    },
+    {
+      "timestamp": "2024-01-21 04:30:00+00:00",
+      "primary_zone": "tdr38x",
+      "secondary_zone": "tdr38r",
+      "distance_m": 79.6,
+      "primary_size": 15,
+      "secondary_size": 11
+    },
+    {
+      "timestamp": "2024-01-22 07:00:00+00:00",
+      "primary_zone": "tdr1vg",
+      "secondary_zone": "tdr1vf",
+      "distance_m": 181.1,
+      "primary_size": 28,
+      "secondary_size": 8
+    },
+    {
+      "timestamp": "2024-01-24 19:30:00+00:00",
+      "primary_zone": "tdr1tr",
+      "secondary_zone": "tdr1v2",
+      "distance_m": 120.4,
+      "primary_size": 43,
+      "secondary_size": 21
+    },
+    {
+      "timestamp": "2024-01-24 22:00:00+00:00",
+      "primary_zone": "tdr1vt",
+      "secondary_zone": "tdr1vs",
+      "distance_m": 38.1,
+      "primary_size": 15,
+      "secondary_size": 7
+    },
+    {
+      "timestamp": "2024-01-25 20:00:00+00:00",
+      "primary_zone": "tdr1tr",
+      "secondary_zone": "tdr1v2",
+      "distance_m": 171.4,
+      "primary_size": 21,
+      "secondary_size": 81
+    },
+    {
+      "timestamp": "2024-01-31 05:30:00+00:00",
+      "primary_zone": "tdr1ug",
+      "secondary_zone": "tdr1uu",
+      "distance_m": 38.8,
+      "primary_size": 18,
+      "secondary_size": 11
+    },
+    {
+      "timestamp": "2024-02-03 04:30:00+00:00",
+      "primary_zone": "tdr4h8",
+      "secondary_zone": "tdr4hb",
+      "distance_m": 122.2,
+      "primary_size": 22,
+      "secondary_size": 12
+    },
+    {
+      "timestamp": "2024-02-04 04:30:00+00:00",
+      "primary_zone": "tdr1y7",
+      "secondary_zone": "tdr1ye",
+      "distance_m": 188.9,
+      "primary_size": 29,
+      "secondary_size": 6
+    },
+    {
+      "timestamp": "2024-02-07 04:00:00+00:00",
+      "primary_zone": "tdr1tr",
+      "secondary_zone": "tdr1v2",
+      "distance_m": 44.7,
+      "primary_size": 22,
+      "secondary_size": 30
+    },
+    {
+      "timestamp": "2024-02-07 04:30:00+00:00",
+      "primary_zone": "tdr1v2",
+      "secondary_zone": "tdr1tr",
+      "distance_m": 15.9,
+      "primary_size": 30,
+      "secondary_size": 7
+    },
+    {
+      "timestamp": "2024-02-07 07:00:00+00:00",
+      "primary_zone": "tdr1v1",
+      "secondary_zone": "tdr1v6",
+      "distance_m": 142.0,
+      "primary_size": 17,
+      "secondary_size": 10
+    },
+    {
+      "timestamp": "2024-02-09 03:00:00+00:00",
+      "primary_zone": "tdr38n",
+      "secondary_zone": "tdr38p",
+      "distance_m": 116.4,
+      "primary_size": 16,
+      "secondary_size": 6
+    },
+    {
+      "timestamp": "2024-02-11 04:30:00+00:00",
+      "primary_zone": "tdr1tr",
+      "secondary_zone": "tdr1v2",
+      "distance_m": 190.4,
+      "primary_size": 15,
+      "secondary_size": 50
+    },
+    {
+      "timestamp": "2024-02-12 05:00:00+00:00",
+      "primary_zone": "tdr1vf",
+      "secondary_zone": "tdr1y5",
+      "distance_m": 62.7,
+      "primary_size": 15,
+      "secondary_size": 7
+    },
+    {
+      "timestamp": "2024-02-12 18:00:00+00:00",
+      "primary_zone": "tdr1v2",
+      "secondary_zone": "tdr1tr",
+      "distance_m": 60.6,
+      "primary_size": 34,
+      "secondary_size": 19
+    },
+    {
+      "timestamp": "2024-02-14 19:00:00+00:00",
+      "primary_zone": "tdr1tr",
+      "secondary_zone": "tdr1v2",
+      "distance_m": 61.4,
+      "primary_size": 18,
+      "secondary_size": 8
+    },
+    {
+      "timestamp": "2024-02-16 03:00:00+00:00",
+      "primary_zone": "tdr1y5",
+      "secondary_zone": "tdr1vg",
+      "distance_m": 171.3,
+      "primary_size": 30,
+      "secondary_size": 30
+    },
+    {
+      "timestamp": "2024-02-16 03:30:00+00:00",
+      "primary_zone": "tdr1vg",
+      "secondary_zone": "tdr1y5",
+      "distance_m": 40.8,
+      "primary_size": 30,
+      "secondary_size": 16
+    },
+    {
+      "timestamp": "2024-02-18 21:30:00+00:00",
+      "primary_zone": "tdr1xr",
+      "secondary_zone": "tdr1xq",
+      "distance_m": 25.4,
+      "primary_size": 16,
+      "secondary_size": 18
+    },
+    {
+      "timestamp": "2024-02-18 22:00:00+00:00",
+      "primary_zone": "tdr1xq",
+      "secondary_zone": "tdr1xr",
+      "distance_m": 66.4,
+      "primary_size": 18,
+      "secondary_size": 8
+    },
+    {
+      "timestamp": "2024-02-20 20:00:00+00:00",
+      "primary_zone": "tdr1tr",
+      "secondary_zone": "tdr1v2",
+      "distance_m": 79.2,
+      "primary_size": 30,
+      "secondary_size": 22
+    },
+    {
+      "timestamp": "2024-02-25 20:00:00+00:00",
+      "primary_zone": "tdr1tr",
+      "secondary_zone": "tdr1v2",
+      "distance_m": 82.8,
+      "primary_size": 31,
+      "secondary_size": 19
+    },
+    {
+      "timestamp": "2024-02-28 19:30:00+00:00",
+      "primary_zone": "tdr1tr",
+      "secondary_zone": "tdr1v2",
+      "distance_m": 95.6,
+      "primary_size": 33,
+      "secondary_size": 14
+    },
+    {
+      "timestamp": "2024-03-02 03:00:00+00:00",
+      "primary_zone": "tdr1y6",
+      "secondary_zone": "tdr1ye",
+      "distance_m": 136.2,
+      "primary_size": 27,
+      "secondary_size": 12
+    },
+    {
+      "timestamp": "2024-03-02 19:30:00+00:00",
+      "primary_zone": "tdr1v2",
+      "secondary_zone": "tdr1tr",
+      "distance_m": 138.1,
+      "primary_size": 17,
+      "secondary_size": 21
+    },
+    {
+      "timestamp": "2024-03-02 20:00:00+00:00",
+      "primary_zone": "tdr1tr",
+      "secondary_zone": "tdr1v2",
+      "distance_m": 95.3,
+      "primary_size": 21,
+      "secondary_size": 25
+    },
+    {
+      "timestamp": "2024-03-07 02:30:00+00:00",
+      "primary_zone": "tdr1y5",
+      "secondary_zone": "tdr1vg",
+      "distance_m": 64.5,
+      "primary_size": 20,
+      "secondary_size": 8
+    },
+    {
+      "timestamp": "2024-03-08 03:30:00+00:00",
+      "primary_zone": "tdr1yd",
+      "secondary_zone": "tdr1yf",
+      "distance_m": 173.7,
+      "primary_size": 18,
+      "secondary_size": 18
+    },
+    {
+      "timestamp": "2024-03-08 04:00:00+00:00",
+      "primary_zone": "tdr1yf",
+      "secondary_zone": "tdr1yd",
+      "distance_m": 92.7,
+      "primary_size": 18,
+      "secondary_size": 30
+    },
+    {
+      "timestamp": "2024-03-08 19:30:00+00:00",
+      "primary_zone": "tdr1zm",
+      "secondary_zone": "tdr1zq",
+      "distance_m": 140.4,
+      "primary_size": 22,
+      "secondary_size": 9
+    },
+    {
+      "timestamp": "2024-03-09 22:00:00+00:00",
+      "primary_zone": "tdr1v4",
+      "secondary_zone": "tdr1v6",
+      "distance_m": 68.5,
+      "primary_size": 15,
+      "secondary_size": 13
+    },
+    {
+      "timestamp": "2024-03-10 02:30:00+00:00",
+      "primary_zone": "tdr1zv",
+      "secondary_zone": "tdr3bj",
+      "distance_m": 42.7,
+      "primary_size": 20,
+      "secondary_size": 13
+    },
+    {
+      "timestamp": "2024-03-10 06:00:00+00:00",
+      "primary_zone": "tdr3bj",
+      "secondary_zone": "tdr1zv",
+      "distance_m": 139.2,
+      "primary_size": 17,
+      "secondary_size": 26
+    },
+    {
+      "timestamp": "2024-03-10 07:00:00+00:00",
+      "primary_zone": "tdr1v6",
+      "secondary_zone": "tdr1v3",
+      "distance_m": 186.8,
+      "primary_size": 15,
+      "secondary_size": 14
+    },
+    {
+      "timestamp": "2024-03-12 03:30:00+00:00",
+      "primary_zone": "tdr1vg",
+      "secondary_zone": "tdr1y5",
+      "distance_m": 177.3,
+      "primary_size": 42,
+      "secondary_size": 6
+    },
+    {
+      "timestamp": "2024-03-14 04:00:00+00:00",
+      "primary_zone": "tdr1v6",
+      "secondary_zone": "tdr1v4",
+      "distance_m": 99.0,
+      "primary_size": 16,
+      "secondary_size": 5
+    },
+    {
+      "timestamp": "2024-03-16 17:00:00+00:00",
+      "primary_zone": "tdr1v2",
+      "secondary_zone": "tdr1tr",
+      "distance_m": 11.8,
+      "primary_size": 24,
+      "secondary_size": 49
+    },
+    {
+      "timestamp": "2024-03-16 18:00:00+00:00",
+      "primary_zone": "tdr1tr",
+      "secondary_zone": "tdr1v2",
+      "distance_m": 69.2,
+      "primary_size": 49,
+      "secondary_size": 8
+    },
+    {
+      "timestamp": "2024-03-18 19:00:00+00:00",
+      "primary_zone": "tdr4pb",
+      "secondary_zone": "tdr600",
+      "distance_m": 49.0,
+      "primary_size": 24,
+      "secondary_size": 11
+    },
+    {
+      "timestamp": "2024-03-25 05:00:00+00:00",
+      "primary_zone": "tdr1y4",
+      "secondary_zone": "tdr1y5",
+      "distance_m": 47.6,
+      "primary_size": 21,
+      "secondary_size": 21
+    },
+    {
+      "timestamp": "2024-03-29 04:30:00+00:00",
+      "primary_zone": "tdr1v2",
+      "secondary_zone": "tdr1v3",
+      "distance_m": 29.1,
+      "primary_size": 20,
+      "secondary_size": 19
+    },
+    {
+      "timestamp": "2024-03-29 05:30:00+00:00",
+      "primary_zone": "tdr1vf",
+      "secondary_zone": "tdr1vg",
+      "distance_m": 188.4,
+      "primary_size": 15,
+      "secondary_size": 50
+    },
+    {
+      "timestamp": "2024-03-29 17:30:00+00:00",
+      "primary_zone": "tdr1tr",
+      "secondary_zone": "tdr1v2",
+      "distance_m": 111.1,
+      "primary_size": 17,
+      "secondary_size": 7
+    },
+    {
+      "timestamp": "2024-03-30 02:30:00+00:00",
+      "primary_zone": "tdr1v6",
+      "secondary_zone": "tdr1v4",
+      "distance_m": 71.5,
+      "primary_size": 17,
+      "secondary_size": 17
+    },
+    {
+      "timestamp": "2024-03-30 03:00:00+00:00",
+      "primary_zone": "tdr1v4",
+      "secondary_zone": "tdr1v6",
+      "distance_m": 68.1,
+      "primary_size": 17,
+      "secondary_size": 5
+    },
+    {
+      "timestamp": "2024-03-31 05:00:00+00:00",
+      "primary_zone": "tdr1zv",
+      "secondary_zone": "tdr3bj",
+      "distance_m": 172.5,
+      "primary_size": 21,
+      "secondary_size": 23
+    },
+    {
+      "timestamp": "2024-03-31 19:00:00+00:00",
+      "primary_zone": "tdr1tr",
+      "secondary_zone": "tdr1v2",
+      "distance_m": 71.7,
+      "primary_size": 26,
+      "secondary_size": 8
+    },
+    {
+      "timestamp": "2024-04-02 04:30:00+00:00",
+      "primary_zone": "tdr1v6",
+      "secondary_zone": "tdr1v3",
+      "distance_m": 183.2,
+      "primary_size": 32,
+      "secondary_size": 35
+    },
+    {
+      "timestamp": "2024-04-02 05:00:00+00:00",
+      "primary_zone": "tdr1v3",
+      "secondary_zone": "tdr1v6",
+      "distance_m": 41.6,
+      "primary_size": 35,
+      "secondary_size": 20
+    },
+    {
+      "timestamp": "2024-04-06 19:30:00+00:00",
+      "primary_zone": "tdr600",
+      "secondary_zone": "tdr4pb",
+      "distance_m": 20.0,
+      "primary_size": 17,
+      "secondary_size": 12
+    },
+    {
+      "timestamp": "2024-04-07 19:00:00+00:00",
+      "primary_zone": "tdr600",
+      "secondary_zone": "tdr4pb",
+      "distance_m": 141.8,
+      "primary_size": 43,
+      "secondary_size": 23
+    },
+    {
+      "timestamp": "2024-04-07 19:30:00+00:00",
+      "primary_zone": "tdr4pb",
+      "secondary_zone": "tdr600",
+      "distance_m": 64.7,
+      "primary_size": 23,
+      "secondary_size": 17
+    },
+    {
+      "timestamp": "2024-04-08 05:00:00+00:00",
+      "primary_zone": "tdr1v4",
+      "secondary_zone": "tdr1v6",
+      "distance_m": 84.3,
+      "primary_size": 17,
+      "secondary_size": 8
+    }
+  ],
+  "params": {
+    "eps_meters": 200,
+    "min_samples": 5,
+    "window_minutes": 30,
+    "proximity_meters": 200
+  }
+}
