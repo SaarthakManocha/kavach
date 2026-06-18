@@ -131,10 +131,15 @@ export default function DeploymentGrid({ data, itineraries = [] }) {
           <tbody>
             {zoneIds.map((zoneId, zi) => {
               const name = resolveZoneName(zoneNameLookup, zoneId);
-              const totalUnits = hours.reduce((sum, h) => {
+              // Count hours with at least 1 unit and find peak
+              let coveredHours = 0;
+              let peakUnits = 0;
+              hours.forEach(h => {
                 const entry = gridMap[`${h}-${zoneId}`];
-                return sum + (entry?.units_assigned || 0);
-              }, 0);
+                const u = entry?.units_assigned || 0;
+                if (u > 0) coveredHours++;
+                if (u > peakUnits) peakUnits = u;
+              });
 
               return (
                 <tr key={zoneId} style={{
@@ -149,7 +154,7 @@ export default function DeploymentGrid({ data, itineraries = [] }) {
                   }}>
                     <div style={{ fontSize: 12, fontWeight: 600, lineHeight: 1.3 }}>{name}</div>
                     <div style={{ fontSize: 10, color: 'var(--text-muted)' }}>
-                      {totalUnits} units/day
+                      {coveredHours}h coverage · peak {peakUnits} units
                     </div>
                   </td>
                   {hours.map(hour => {
