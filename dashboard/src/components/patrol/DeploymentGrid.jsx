@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState, useRef, useEffect } from 'react';
 import { useZoneNames, resolveZoneName } from '../../utils/zoneNames';
 
 function getCellColor(units) {
@@ -8,9 +8,46 @@ function getCellColor(units) {
   return 'transparent';
 }
 
-export default function DeploymentGrid({ data }) {
+export default function DeploymentGrid({ data, itineraries = [] }) {
   const currentHour = new Date().getHours();
   const zoneNameLookup = useZoneNames();
+  const [popup, setPopup] = useState(null); // { zoneId, hour, x, y }
+  const popupRef = useRef(null);
+
+  // Close popup on outside click
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (popupRef.current && !popupRef.current.contains(e.target)) {
+        setPopup(null);
+      }
+    };
+    if (popup) document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [popup]);
+
+  // Build unit assignment lookup: { "hour-zone_id": [unit_label, ...] }
+  const unitLookup = useMemo(() => {
+    const lookup = {};
+    itineraries.forEach(unit => {
+      (unit.assignments || []).forEach(a => {
+        // Each assignment covers a 2-hour block starting at start_hour
+        const startHour = a.start_hour;
+        for (let h = startHour; h < startHour + 2 && h < 24; h++) {
+          const key = `${h}-${a.zone_id}`;
+          if (!lookup[key]) lookup[key] = [];
+          lookup[key].push({
+            label: unit.unit_label,
+            shift: `${unit.shift_start} – ${unit.shift_end}`,
+            block: a.block,
+            travel: a.travel_from_prev_min,
+            distance: a.distance_from_prev_km,
+            feasible: a.feasible,
+          });
+        }
+      });
+    });
+    return lookup;
+  }, [itineraries]);
 
   const { hours, zoneIds, gridMap } = useMemo(() => {
     if (!data || data.length === 0) return { hours: [], zoneIds: [], gridMap: {} };
@@ -28,6 +65,17 @@ export default function DeploymentGrid({ data }) {
     return { hours, zoneIds, gridMap };
   }, [data]);
 
+  const handleCellClick = (e, zoneId, hour, units) => {
+    if (units === 0) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    setPopup({
+      zoneId,
+      hour,
+      x: rect.left + rect.width / 2,
+      y: rect.bottom + 4,
+    });
+  };
+
   if (hours.length === 0) {
     return (
       <div className="deployment-grid-wrapper">
@@ -37,8 +85,12 @@ export default function DeploymentGrid({ data }) {
     );
   }
 
+  const popupUnits = popup ? (unitLookup[`${popup.hour}-${popup.zoneId}`] || []) : [];
+  const popupEntry = popup ? gridMap[`${popup.hour}-${popup.zoneId}`] : null;
+  const popupName = popup ? resolveZoneName(zoneNameLookup, popup.zoneId) : '';
+
   return (
-    <div className="deployment-grid-wrapper">
+    <div className="deployment-grid-wrapper" style={{ position: 'relative' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
         <h3 style={{ margin: 0 }}>24-Hour Deployment Timeline</h3>
         <div style={{ display: 'flex', gap: 12, fontSize: 11, color: 'var(--text-muted)' }}>
@@ -79,7 +131,6 @@ export default function DeploymentGrid({ data }) {
           <tbody>
             {zoneIds.map((zoneId, zi) => {
               const name = resolveZoneName(zoneNameLookup, zoneId);
-              // Count total units across day for this zone
               const totalUnits = hours.reduce((sum, h) => {
                 const entry = gridMap[`${h}-${zoneId}`];
                 return sum + (entry?.units_assigned || 0);
@@ -105,27 +156,30 @@ export default function DeploymentGrid({ data }) {
                     const entry = gridMap[`${hour}-${zoneId}`];
                     const units = entry?.units_assigned || 0;
                     const isNow = hour === currentHour;
+                    const isActive = popup?.zoneId === zoneId && popup?.hour === hour;
 
                     return (
                       <td
                         key={hour}
+                        onClick={(e) => handleCellClick(e, zoneId, hour, units)}
                         style={{
                           textAlign: 'center', padding: '4px 2px',
-                          background: units > 0
-                            ? getCellColor(units)
-                            : isNow ? 'rgba(99, 102, 241, 0.05)' : 'transparent',
+                          background: isActive
+                            ? 'rgba(99, 102, 241, 0.5)'
+                            : units > 0
+                              ? getCellColor(units)
+                              : isNow ? 'rgba(99, 102, 241, 0.05)' : 'transparent',
                           fontSize: 11, fontWeight: units > 0 ? 700 : 400,
                           color: units > 0 ? '#fff' : 'var(--text-muted)',
+                          cursor: units > 0 ? 'pointer' : 'default',
                           borderLeft: isNow ? '1px solid rgba(99, 102, 241, 0.3)' : 'none',
                           borderRight: isNow ? '1px solid rgba(99, 102, 241, 0.3)' : 'none',
-                          transition: 'background 0.2s ease',
+                          transition: 'background 0.15s ease',
+                          outline: isActive ? '2px solid var(--accent)' : 'none',
+                          borderRadius: isActive ? 3 : 0,
                         }}
-                        title={units > 0
-                          ? `${name} @ ${String(hour).padStart(2, '0')}:00 — ${units} unit${units > 1 ? 's' : ''}, ${entry.predicted_violations} predicted violations`
-                          : `${name} @ ${String(hour).padStart(2, '0')}:00 — no deployment`
-                        }
                       >
-                        {units > 0 ? units : '·'}
+                        {units > 0 ? units : '\u00b7'}
                       </td>
                     );
                   })}
@@ -135,6 +189,107 @@ export default function DeploymentGrid({ data }) {
           </tbody>
         </table>
       </div>
+
+      {/* Unit detail popup */}
+      {popup && (
+        <div
+          ref={popupRef}
+          style={{
+            position: 'fixed',
+            left: Math.min(popup.x - 140, window.innerWidth - 300),
+            top: popup.y,
+            width: 280,
+            background: 'var(--bg-card)',
+            border: '1px solid var(--border)',
+            borderRadius: 10,
+            padding: 16,
+            boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+            zIndex: 100,
+            animation: 'fadeIn 0.15s ease',
+          }}
+        >
+          {/* Header */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 }}>
+            <div>
+              <div style={{ fontWeight: 700, fontSize: 14 }}>{popupName}</div>
+              <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>
+                {String(popup.hour).padStart(2, '0')}:00 – {String(popup.hour + 1).padStart(2, '0')}:00
+              </div>
+            </div>
+            <button
+              onClick={() => setPopup(null)}
+              style={{
+                background: 'none', border: 'none', color: 'var(--text-muted)',
+                cursor: 'pointer', fontSize: 16, padding: '0 4px', lineHeight: 1,
+              }}
+            >&times;</button>
+          </div>
+
+          {/* Stats row */}
+          {popupEntry && (
+            <div style={{
+              display: 'flex', gap: 12, marginBottom: 12, padding: '8px 0',
+              borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)',
+            }}>
+              <div style={{ flex: 1, textAlign: 'center' }}>
+                <div style={{ fontSize: 18, fontWeight: 700, fontFamily: "'JetBrains Mono', monospace" }}>
+                  {popupEntry.units_assigned}
+                </div>
+                <div style={{ fontSize: 9, color: 'var(--text-muted)', textTransform: 'uppercase' }}>Units</div>
+              </div>
+              <div style={{ flex: 1, textAlign: 'center' }}>
+                <div style={{ fontSize: 18, fontWeight: 700, fontFamily: "'JetBrains Mono', monospace", color: 'var(--warning)' }}>
+                  {popupEntry.predicted_violations}
+                </div>
+                <div style={{ fontSize: 9, color: 'var(--text-muted)', textTransform: 'uppercase' }}>Predicted</div>
+              </div>
+              <div style={{ flex: 1, textAlign: 'center' }}>
+                <div style={{ fontSize: 18, fontWeight: 700, fontFamily: "'JetBrains Mono', monospace", color: 'var(--success)' }}>
+                  {popupEntry.predicted_reduction_pct}%
+                </div>
+                <div style={{ fontSize: 9, color: 'var(--text-muted)', textTransform: 'uppercase' }}>Reduction</div>
+              </div>
+            </div>
+          )}
+
+          {/* Unit list */}
+          <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 6, fontWeight: 600 }}>
+            Assigned Units
+          </div>
+          {popupUnits.length > 0 ? (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+              {popupUnits.map((u, i) => (
+                <div key={i} style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                  padding: '6px 8px', borderRadius: 6,
+                  background: 'var(--bg-hover)',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span style={{
+                      background: 'var(--accent)', color: '#fff',
+                      fontSize: 10, fontWeight: 700, padding: '2px 6px',
+                      borderRadius: 4, fontFamily: "'JetBrains Mono', monospace",
+                    }}>{u.label}</span>
+                    <span style={{ fontSize: 11, color: 'var(--text-secondary)' }}>{u.block}</span>
+                  </div>
+                  {u.travel !== null && (
+                    <span style={{
+                      fontSize: 10,
+                      color: u.feasible ? 'var(--text-muted)' : 'var(--danger)',
+                    }}>
+                      {u.distance}km
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div style={{ fontSize: 12, color: 'var(--text-muted)', padding: '8px 0' }}>
+              Unit details not available in itinerary data.
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

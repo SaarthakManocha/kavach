@@ -70,7 +70,7 @@ export default function DeploymentPage() {
       )}
 
       {/* Deployment Grid */}
-      {!loading && <DeploymentGrid data={planData} />}
+      {!loading && <DeploymentGrid data={planData} itineraries={itineraries} />}
 
       {/* Unit Itineraries */}
       {itineraries.length > 0 && (
