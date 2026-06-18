@@ -349,26 +349,16 @@ def zone_action(zone_id: str):
     weather_zones = weather.get("zones", [])
     weather_info = next((w for w in weather_zones if w.get("zone_id") == zone_id), None)
 
-    # ── Nearest enforcement station ──
-    # Find station with lowest enforcement rate that covers this area
-    # (We use geohash proximity — stations whose violations overlap with this zone)
-    # Simple approach: find the station from enforcement data
-    nearest_station = None
-    zone_lat = zone.get("lat", 0)
-    zone_lng = zone.get("lng", 0)
+    # ── Enforcement station — verified from violations data ──
+    city_avg = 0.857
+    primary_station_name = zone.get("primary_station", "Unknown")
+    primary_station_rate = zone.get("station_enforcement_rate", city_avg)
 
-    # Find stations that are anomalous (for flagging)
-    anomalous_stations = [
-        s for s in enforcement
-        if s.get("is_anomaly")
-        and "no police" not in s.get("police_station", "").lower()
-    ]
-    if anomalous_stations:
-        nearest_station = {
-            "station": anomalous_stations[0].get("police_station"),
-            "enforcement_rate": round(anomalous_stations[0].get("enforcement_rate", 0) * 100, 1),
-            "is_anomaly": True,
-        }
+    nearest_station = {
+        "station": primary_station_name,
+        "enforcement_rate": round(primary_station_rate * 100, 1),
+        "is_anomaly": primary_station_rate < (city_avg - 0.10)
+    }
 
     # ── Spillover ──
     spillover_events = spillover.get("total_spillover_events", 0)
@@ -413,12 +403,19 @@ def zone_action(zone_id: str):
             })
 
     # Action 3: Enforcement gap
-    if nearest_station and nearest_station.get("is_anomaly"):
-        actions.append({
-            "icon": "shield-alert",
-            "priority": "medium",
-            "text": f"Nearby station ({nearest_station['station']}) enforcement rate is {nearest_station['enforcement_rate']}%. Flagged for review.",
-        })
+    if nearest_station["station"] != "Unknown":
+        if nearest_station["is_anomaly"]:
+            actions.append({
+                "icon": "shield-alert",
+                "priority": "medium",
+                "text": f"{nearest_station['station']} PS enforcement rate is {nearest_station['enforcement_rate']}% — {round((city_avg - primary_station_rate) * 100, 1)}pp below city average. Flag for review.",
+            })
+        else:
+            actions.append({
+                "icon": "shield-alert",
+                "priority": "info",
+                "text": f"{nearest_station['station']} PS enforcement rate is {nearest_station['enforcement_rate']}% — above city average.",
+            })
 
     # Action 4: Economic
     actions.append({
