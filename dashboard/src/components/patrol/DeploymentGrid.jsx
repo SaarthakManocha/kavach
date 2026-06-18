@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useZoneNames, resolveZoneName } from '../../utils/zoneNames';
 
 function getCellColor(violations) {
   if (violations > 15) return 'rgba(239, 68, 68, 0.6)';
@@ -9,6 +10,7 @@ function getCellColor(violations) {
 
 export default function DeploymentGrid({ data }) {
   const currentHour = new Date().getHours();
+  const zoneNameLookup = useZoneNames();
 
   const { hours, zoneIds, gridMap } = useMemo(() => {
     if (!data || data.length === 0) return { hours: [], zoneIds: [], gridMap: {} };
@@ -43,9 +45,12 @@ export default function DeploymentGrid({ data }) {
         <thead>
           <tr>
             <th>Hour</th>
-            {zoneIds.map(z => (
-              <th key={z} title={z}>{z.substring(0, 6)}</th>
-            ))}
+            {zoneIds.map(z => {
+              const name = resolveZoneName(zoneNameLookup, z);
+              // Truncate long names for table header
+              const short = name.length > 14 ? name.substring(0, 12) + '…' : name;
+              return <th key={z} title={name}>{short}</th>;
+            })}
           </tr>
         </thead>
         <tbody>
