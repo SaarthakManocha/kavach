@@ -465,8 +465,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .stat-cards-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
   margin-bottom: 32px;
 }
 

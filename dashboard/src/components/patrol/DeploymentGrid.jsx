@@ -177,17 +177,18 @@ export default function DeploymentGrid({ data, itineraries = [] }) {
                         style={{
                           textAlign: 'center', padding: '4px 2px',
                           background: isActive
-                            ? 'rgba(99, 102, 241, 0.5)'
+                            ? '#6366f1'
                             : predicted > 0
                               ? getCellColor(predicted)
                               : isNow ? 'rgba(99, 102, 241, 0.05)' : 'transparent',
-                          fontSize: 11, fontWeight: predicted > 0 ? 700 : 400,
-                          color: predicted > 0 ? '#fff' : 'var(--text-muted)',
+                          fontSize: 11, fontWeight: predicted > 0 || isActive ? 700 : 400,
+                          color: predicted > 0 || isActive ? '#fff' : 'var(--text-muted)',
                           cursor: predicted > 0 ? 'pointer' : 'default',
                           borderLeft: isNow ? '1px solid rgba(99, 102, 241, 0.3)' : 'none',
                           borderRight: isNow ? '1px solid rgba(99, 102, 241, 0.3)' : 'none',
                           transition: 'background 0.15s ease',
-                          outline: isActive ? '2px solid var(--accent)' : 'none',
+                          outline: isActive ? '2px solid #818cf8' : 'none',
+                          outlineOffset: isActive ? -1 : 0,
                           borderRadius: isActive ? 3 : 0,
                         }}
                       >
