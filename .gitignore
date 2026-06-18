@@ -2,10 +2,10 @@
 Dataset/jan to may police violation_anonymized791b166.csv
 PROMPT_REVANTH.md
 DESIGN.md
+PROJECT_STATUS.md
 /venv
 
 # Generated data files (large, reproducible)
-Dataset/violations_clean.pkl
 Dataset/bengaluru_roads.graphml
 
 # Model files
