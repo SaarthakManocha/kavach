@@ -52,8 +52,6 @@ export default function DeploymentGrid({ data, itineraries = [] }) {
   const { hours, zoneIds, gridMap } = useMemo(() => {
     if (!data || data.length === 0) return { hours: [], zoneIds: [], gridMap: {} };
 
-    const allZones = [...new Set(data.map(d => d.zone_id))];
-    const zoneIds = allZones.slice(0, 12);
     const hours = [...new Set(data.map(d => d.hour))].sort((a, b) => a - b);
 
     const gridMap = {};
@@ -62,8 +60,21 @@ export default function DeploymentGrid({ data, itineraries = [] }) {
       gridMap[key] = d;
     });
 
+    // Build zone list from itinerary assignments, ranked by total coverage
+    const zoneCoverage = {};
+    Object.entries(unitLookup).forEach(([key, units]) => {
+      const zoneId = key.split('-').slice(1).join('-');
+      if (!zoneCoverage[zoneId]) zoneCoverage[zoneId] = 0;
+      zoneCoverage[zoneId] += units.length;
+    });
+
+    const zoneIds = Object.entries(zoneCoverage)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 15)
+      .map(([zoneId]) => zoneId);
+
     return { hours, zoneIds, gridMap };
-  }, [data]);
+  }, [data, unitLookup]);
 
   const handleCellClick = (e, zoneId, hour, units) => {
     if (units === 0) return;
@@ -131,14 +142,13 @@ export default function DeploymentGrid({ data, itineraries = [] }) {
           <tbody>
             {zoneIds.map((zoneId, zi) => {
               const name = resolveZoneName(zoneNameLookup, zoneId);
-              // Count hours with at least 1 unit and find peak
+              // Count from actual itinerary assignments (not idealized plan)
               let coveredHours = 0;
               let peakUnits = 0;
               hours.forEach(h => {
-                const entry = gridMap[`${h}-${zoneId}`];
-                const u = entry?.units_assigned || 0;
-                if (u > 0) coveredHours++;
-                if (u > peakUnits) peakUnits = u;
+                const actualUnits = (unitLookup[`${h}-${zoneId}`] || []).length;
+                if (actualUnits > 0) coveredHours++;
+                if (actualUnits > peakUnits) peakUnits = actualUnits;
               });
 
               return (
@@ -159,24 +169,25 @@ export default function DeploymentGrid({ data, itineraries = [] }) {
                   </td>
                   {hours.map(hour => {
                     const entry = gridMap[`${hour}-${zoneId}`];
-                    const units = entry?.units_assigned || 0;
+                    // Use actual itinerary count — matches popup exactly
+                    const actualUnits = (unitLookup[`${hour}-${zoneId}`] || []).length;
                     const isNow = hour === currentHour;
                     const isActive = popup?.zoneId === zoneId && popup?.hour === hour;
 
                     return (
                       <td
                         key={hour}
-                        onClick={(e) => handleCellClick(e, zoneId, hour, units)}
+                        onClick={(e) => handleCellClick(e, zoneId, hour, actualUnits)}
                         style={{
                           textAlign: 'center', padding: '4px 2px',
                           background: isActive
                             ? 'rgba(99, 102, 241, 0.5)'
-                            : units > 0
-                              ? getCellColor(units)
+                            : actualUnits > 0
+                              ? getCellColor(actualUnits)
                               : isNow ? 'rgba(99, 102, 241, 0.05)' : 'transparent',
-                          fontSize: 11, fontWeight: units > 0 ? 700 : 400,
-                          color: units > 0 ? '#fff' : 'var(--text-muted)',
-                          cursor: units > 0 ? 'pointer' : 'default',
+                          fontSize: 11, fontWeight: actualUnits > 0 ? 700 : 400,
+                          color: actualUnits > 0 ? '#fff' : 'var(--text-muted)',
+                          cursor: actualUnits > 0 ? 'pointer' : 'default',
                           borderLeft: isNow ? '1px solid rgba(99, 102, 241, 0.3)' : 'none',
                           borderRight: isNow ? '1px solid rgba(99, 102, 241, 0.3)' : 'none',
                           transition: 'background 0.15s ease',
@@ -184,7 +195,7 @@ export default function DeploymentGrid({ data, itineraries = [] }) {
                           borderRadius: isActive ? 3 : 0,
                         }}
                       >
-                        {units > 0 ? units : '\u00b7'}
+                        {actualUnits > 0 ? actualUnits : '\u00b7'}
                       </td>
                     );
                   })}
