@@ -381,15 +381,27 @@ def build_unit_itineraries(patrol_plan: list, zone_lookup: dict) -> dict:
         unit_distance = 0
 
         for block in shift_blocks:
-            # Each unit gets assigned to the zone ranked by their unit_id position
-            # (round-robin across blocks)
+            # Pick zone for this unit: prefer nearby zones to minimize transit
             zones = block["zones"]
             if not zones:
                 continue
 
-            # Pick zone for this unit: cycle through available zones
-            zone_idx = (unit_id - 1) % len(zones)
-            entry = zones[zone_idx]
+            if prev_lat is not None:
+                # Sort zones by distance from current position, then pick by unit rank
+                zones_with_dist = []
+                for z in zones:
+                    d = haversine_km(prev_lat, prev_lng, z["zone_lat"], z["zone_lng"])
+                    zones_with_dist.append((d, z))
+                zones_with_dist.sort(key=lambda x: x[0])
+
+                # Pick from sorted list by unit index (keeps distribution across zones)
+                zone_idx = (unit_id - 1) % len(zones_with_dist)
+                entry = zones_with_dist[zone_idx][1]
+            else:
+                # First assignment — no previous location, use round-robin
+                zone_idx = (unit_id - 1) % len(zones)
+                entry = zones[zone_idx]
+
             zid = entry["zone_id"]
 
             # Get display name
