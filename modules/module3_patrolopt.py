@@ -365,8 +365,32 @@ def build_unit_itineraries(patrol_plan: list, zone_lookup: dict) -> dict:
             "zones": block_zones,
         })
 
-    # Assign units to shift blocks
-    # Each unit works a full day, moving between blocks
+    # ── Build assignment matrix: for each block, which unit goes where ──
+    # Strategy: Create a slot pool per block from zone demand, then assign
+    # units with rotating offsets so each unit visits DIFFERENT zones.
+
+    # First, build per-block slot pools from the plan's unit counts
+    block_slots = []  # List of (start_hour, end_hour, [(zone_entry, slot_idx), ...])
+    for block in shift_blocks:
+        slots = []
+        for z in block["zones"]:
+            # How many units does this zone need in this block?
+            units_needed = 0
+            for h in range(block["start_hour"], block["end_hour"]):
+                for pe in by_hour.get(h, []):
+                    if pe["zone_id"] == z["zone_id"]:
+                        units_needed = max(units_needed, pe.get("units_assigned", 1))
+            # Create that many slots
+            for s in range(units_needed):
+                slots.append(z)
+        block_slots.append({
+            "start_hour": block["start_hour"],
+            "end_hour": block["end_hour"],
+            "slots": slots,
+        })
+
+    # Assign units to slots with rotating offset per block
+    # This ensures each unit visits a DIFFERENT zone each block
     itineraries = []
     total_transit_min = 0
     total_patrol_min = 0
@@ -379,28 +403,24 @@ def build_unit_itineraries(patrol_plan: list, zone_lookup: dict) -> dict:
         prev_lng = None
         unit_transit = 0
         unit_distance = 0
+        prev_zone_id = None
 
-        for block in shift_blocks:
-            # Pick zone for this unit: prefer nearby zones to minimize transit
-            zones = block["zones"]
-            if not zones:
+        for bi, block in enumerate(block_slots):
+            slots = block["slots"]
+            if not slots:
                 continue
 
-            if prev_lat is not None:
-                # Sort zones by distance from current position, then pick by unit rank
-                zones_with_dist = []
-                for z in zones:
-                    d = haversine_km(prev_lat, prev_lng, z["zone_lat"], z["zone_lng"])
-                    zones_with_dist.append((d, z))
-                zones_with_dist.sort(key=lambda x: x[0])
+            # Offset rotates by block index to ensure variety
+            # Unit 1 at block 0 gets slot 0, at block 1 gets slot 3, etc.
+            offset = (unit_id - 1 + bi * 7) % len(slots)  # Prime offset for diversity
+            entry = slots[offset]
 
-                # Pick from sorted list by unit index (keeps distribution across zones)
-                zone_idx = (unit_id - 1) % len(zones_with_dist)
-                entry = zones_with_dist[zone_idx][1]
-            else:
-                # First assignment — no previous location, use round-robin
-                zone_idx = (unit_id - 1) % len(zones)
-                entry = zones[zone_idx]
+            # Avoid same zone as previous block if possible
+            if entry["zone_id"] == prev_zone_id and len(slots) > 1:
+                # Try next slot
+                alt_offset = (offset + 1) % len(slots)
+                if slots[alt_offset]["zone_id"] != prev_zone_id:
+                    entry = slots[alt_offset]
 
             zid = entry["zone_id"]
 
@@ -419,8 +439,6 @@ def build_unit_itineraries(patrol_plan: list, zone_lookup: dict) -> dict:
                     entry["zone_lat"], entry["zone_lng"],
                     block["start_hour"]
                 )
-                # Feasible if travel time < shift block duration (2 hours = 120 min)
-                # Practically, transit < 45 min is acceptable for Bengaluru
                 feasible = bool(travel_min <= 45)
                 unit_transit += float(travel_min)
                 unit_distance += float(distance_km)
@@ -443,6 +461,7 @@ def build_unit_itineraries(patrol_plan: list, zone_lookup: dict) -> dict:
 
             prev_lat = entry["zone_lat"]
             prev_lng = entry["zone_lng"]
+            prev_zone_id = zid
 
         if not assignments:
             continue
