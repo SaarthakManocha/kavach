@@ -44,6 +44,24 @@
 - **Counterfactual Analysis** — What-if scenarios for enforcement rate changes
 - **AI Daily Briefing** — Automated operational intelligence synthesis
 
+### Dataset
+
+The project includes `Dataset/violations_clean.pkl` — a **44 MB pre-processed Pandas DataFrame** containing 298,277 anonymized traffic violation records from Bengaluru (November 2023 – April 2024). This file is the **single source of truth** consumed by all 8 processing modules. It contains 19 engineered features per violation:
+
+| Feature | Description |
+|---|---|
+| `geohash` | 6-character geohash zone identifier (789 unique zones) |
+| `latitude`, `longitude` | Violation coordinates |
+| `vehicle_type` | Vehicle category (CAR, SCOOTER, LORRY, AUTO, BUS, etc.) |
+| `vehicle_weight` | Numeric congestion-impact weight (1.0–3.0 based on vehicle size) |
+| `violation_type` | Parsed violation categories (NO PARKING, WRONG PARKING, etc.) |
+| `time_multiplier` | Hour-of-day traffic impact factor (peak hours weighted higher) |
+| `hour`, `date` | Temporal fields for pattern analysis |
+| `police_station` | Jurisdictional police station (54 unique stations) |
+| `data_sent_to_scita` | Boolean enforcement action flag (used for enforcement rate) |
+
+This file is produced by `modules/data_cleaning.py` from the raw CSV but is included in the repository so all modules can run without needing the original 110 MB raw dataset.
+
 ---
 
 ## Key Features
@@ -138,12 +156,11 @@ data_cleaning.py → violations_clean.pkl
 
 - **Python 3.10+** with pip
 - **Node.js 18+** with npm
-- ~500 MB disk space for outputs
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/<your-org>/kavach.git
+git clone <repository-url>
 cd kavach
 ```
 
@@ -161,40 +178,7 @@ npm install
 cd ..
 ```
 
-### 4. Run the Data Pipeline (Optional)
-
-> **Note:** Pre-computed outputs are included in `outputs/`. Only run these if you want to regenerate from raw data.
-
-```bash
-# Step 1: Clean raw data (requires raw CSV in Dataset/)
-python modules/data_cleaning.py
-
-# Step 2: Generate CongestIQ scores
-python modules/module2_congestiq.py
-
-# Step 3: Run cascade simulation (requires bengaluru_roads.graphml)
-python modules/module1_cascade.py
-
-# Step 4: Generate temporal predictions (LightGBM)
-python modules/temporal_prediction.py
-
-# Step 5: Generate patrol plan with travel-time calibrated itineraries
-python modules/module3_patrolopt.py
-
-# Step 6: Enforcement anomaly detection
-python modules/module4_enforcement.py
-
-# Step 7: Weather sensitivity analysis
-python modules/module_weather.py
-
-# Step 8: Counterfactual analysis
-python modules/module6_counterfactual.py
-
-# Step 9: Junction archetypes
-python modules/module7_archetypes.py
-```
-
-### 5. Start the API Server
+### 4. Start the API Server
 
 ```bash
 python -m uvicorn api.main:app --port 8000
@@ -202,7 +186,7 @@ python -m uvicorn api.main:app --port 8000
 
 The API will be available at `http://localhost:8000`
 
-### 6. Start the Dashboard
+### 5. Start the Dashboard
 
 ```bash
 cd dashboard
@@ -210,6 +194,38 @@ npm run dev
 ```
 
 Open `http://localhost:5173` in your browser.
+
+> **That's it!** All pre-computed outputs and the cleaned dataset are included in the repository. The dashboard will be fully functional immediately.
+
+### 6. Regenerate Outputs (Optional)
+
+If you want to regenerate any output from scratch using `violations_clean.pkl`:
+
+```bash
+# CongestIQ scores (789 zones)
+python modules/module2_congestiq.py
+
+# Temporal predictions (LightGBM)
+python modules/temporal_prediction.py
+
+# Patrol deployment plan (30 units)
+python modules/module3_patrolopt.py
+
+# Enforcement anomaly detection
+python modules/module4_enforcement.py
+
+# Weather sensitivity analysis
+python modules/module_weather.py
+
+# Counterfactual analysis
+python modules/module6_counterfactual.py
+
+# Junction archetypes
+python modules/module7_archetypes.py
+
+# Cascade simulation (requires bengaluru_roads.graphml — not included due to size)
+# python modules/module1_cascade.py
+```
 
 ---
 
@@ -358,12 +374,12 @@ KAVACH/
 │   │   └── index.css           # Design system
 │   └── package.json
 │
-├── Dataset/                    # Raw data (gitignored)
+├── Dataset/
+│   ├── violations_clean.pkl    # 298,277 violations (44 MB, 19 features)
 │   └── dataset.md              # Dataset documentation
 │
 ├── models/                     # Trained models (gitignored)
 ├── .gitignore
-├── PROJECT_STATUS.md
 └── README.md
 ```
 
