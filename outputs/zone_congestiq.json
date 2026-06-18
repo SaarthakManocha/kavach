@@ -171,7 +171,7 @@
     "predicted_score_6h": 150.9,
     "severity": "critical",
     "rank": 8,
-    "display_name": "Beguru",
+    "display_name": "Attur Layout",
     "primary_station": "Chikkajala",
     "station_enforcement_rate": 0.911
   },
@@ -1623,7 +1623,7 @@
     "predicted_score_6h": 14.3,
     "severity": "critical",
     "rank": 74,
-    "display_name": "Beguru",
+    "display_name": "Attur Layout",
     "primary_station": "Chikkajala",
     "station_enforcement_rate": 0.911
   },
@@ -3141,7 +3141,7 @@
     "predicted_score_6h": 6.4,
     "severity": "high",
     "rank": 143,
-    "display_name": "Beguru",
+    "display_name": "Jakkur Plantation",
     "primary_station": "Devanahalli Airport",
     "station_enforcement_rate": 0.8978
   },
@@ -3999,7 +3999,7 @@
     "predicted_score_6h": 0.0,
     "severity": "high",
     "rank": 182,
-    "display_name": "Beguru",
+    "display_name": "Attur Layout",
     "primary_station": "Chikkajala",
     "station_enforcement_rate": 0.911
   },

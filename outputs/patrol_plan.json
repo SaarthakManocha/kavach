@@ -4931,13 +4931,13 @@
       "total_transit_min": 373.4,
       "total_distance_km": 144.4,
       "effective_patrol_min": 586.6,
-      "route_description": "Beguru 06:00 -> UCO Bank Junction 08:00 (34.4km, ~103.3min) -> Papanna Layout 10:00 (15.8km, ~47.5min) -> Central Street Junction 12:00 (9.3km, ~18.7min) -> Bommasandra 14:00 (25.7km, ~51.4min) -> KR Market Junction 16:00 (25.1km, ~50.1min) -> Shree Vinayaka Layout 18:00 (16.3km, ~49.0min) -> Singasandra 20:00 (17.8km, ~53.4min)",
+      "route_description": "Attur Layout 06:00 -> UCO Bank Junction 08:00 (34.4km, ~103.3min) -> Papanna Layout 10:00 (15.8km, ~47.5min) -> Central Street Junction 12:00 (9.3km, ~18.7min) -> Bommasandra 14:00 (25.7km, ~51.4min) -> KR Market Junction 16:00 (25.1km, ~50.1min) -> Shree Vinayaka Layout 18:00 (16.3km, ~49.0min) -> Singasandra 20:00 (17.8km, ~53.4min)",
       "assignments": [
         {
           "block": "06:00-08:00",
           "start_hour": 6,
           "zone_id": "tdr5p8",
-          "zone_name": "Beguru",
+          "zone_name": "Attur Layout",
           "zone_lat": 13.185256,
           "zone_lng": 77.679999,
           "travel_from_prev_min": null,
@@ -5282,7 +5282,7 @@
       "total_transit_min": 370.4,
       "total_distance_km": 137.7,
       "effective_patrol_min": 589.6,
-      "route_description": "Safina Plaza Junction 06:00 -> Electronic City 08:00 (19.1km, ~57.2min) -> UCO Bank Junction 10:00 (13.1km, ~39.3min) -> Bommasandra 12:00 (17.1km, ~34.2min) -> Bommasandra 14:00 (0.6km, ~1.2min) -> Shree Vinayaka Layout 16:00 (24.9km, ~49.8min) -> Beguru 18:00 (23.6km, ~70.9min) -> GarvebhaviPalya 20:00 (39.3km, ~117.8min)",
+      "route_description": "Safina Plaza Junction 06:00 -> Electronic City 08:00 (19.1km, ~57.2min) -> UCO Bank Junction 10:00 (13.1km, ~39.3min) -> Bommasandra 12:00 (17.1km, ~34.2min) -> Bommasandra 14:00 (0.6km, ~1.2min) -> Shree Vinayaka Layout 16:00 (24.9km, ~49.8min) -> Attur Layout 18:00 (23.6km, ~70.9min) -> GarvebhaviPalya 20:00 (39.3km, ~117.8min)",
       "assignments": [
         {
           "block": "06:00-08:00",
@@ -5366,7 +5366,7 @@
           "block": "18:00-20:00",
           "start_hour": 18,
           "zone_id": "tdr5p8",
-          "zone_name": "Beguru",
+          "zone_name": "Attur Layout",
           "zone_lat": 13.185256,
           "zone_lng": 77.679999,
           "travel_from_prev_min": 70.9,
@@ -5399,7 +5399,7 @@
       "total_transit_min": 387.0,
       "total_distance_km": 147.6,
       "effective_patrol_min": 573.0,
-      "route_description": "Mahalaxmi Layout Entrance 06:00 -> Beguru 08:00 (28.8km, ~86.5min) -> Shree Vinayaka Layout 10:00 (23.6km, ~70.9min) -> Bommasandra 12:00 (25.4km, ~50.7min) -> Bommasandra 14:00 (1.2km, ~2.4min) -> Vinayaka Layout 16:00 (29.4km, ~58.8min) -> Shanthala Junction 18:00 (8.2km, ~24.6min) -> Beguru 20:00 (31.0km, ~93.1min)",
+      "route_description": "Mahalaxmi Layout Entrance 06:00 -> Attur Layout 08:00 (28.8km, ~86.5min) -> Shree Vinayaka Layout 10:00 (23.6km, ~70.9min) -> Bommasandra 12:00 (25.4km, ~50.7min) -> Bommasandra 14:00 (1.2km, ~2.4min) -> Vinayaka Layout 16:00 (29.4km, ~58.8min) -> Shanthala Junction 18:00 (8.2km, ~24.6min) -> Attur Layout 20:00 (31.0km, ~93.1min)",
       "assignments": [
         {
           "block": "06:00-08:00",
@@ -5418,7 +5418,7 @@
           "block": "08:00-10:00",
           "start_hour": 8,
           "zone_id": "tdr5p8",
-          "zone_name": "Beguru",
+          "zone_name": "Attur Layout",
           "zone_lat": 13.185256,
           "zone_lng": 77.679999,
           "travel_from_prev_min": 86.5,
@@ -5496,7 +5496,7 @@
           "block": "20:00-22:00",
           "start_hour": 20,
           "zone_id": "tdr5p8",
-          "zone_name": "Beguru",
+          "zone_name": "Attur Layout",
           "zone_lat": 13.185256,
           "zone_lng": 77.679999,
           "travel_from_prev_min": 93.1,
