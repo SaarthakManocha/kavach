@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+pandas
+numpy
+scikit-learn
+lightgbm
+geohash2
+networkx
+requests
+geopandas
+shapely
+scipy
