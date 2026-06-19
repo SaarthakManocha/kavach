@@ -53,7 +53,7 @@ The project includes `Dataset/violations_clean.pkl` — a **44 MB pre-processed 
 | `geohash` | 6-character geohash zone identifier (789 unique zones) |
 | `latitude`, `longitude` | Violation coordinates |
 | `vehicle_type` | Vehicle category (CAR, SCOOTER, LORRY, AUTO, BUS, etc.) |
-| `vehicle_weight` | Numeric congestion-impact weight (1.0–3.0 based on vehicle size) |
+| `vehicle_weight` | Numeric congestion-impact weight (0.8–10.0, MOPED=0.8 to TANKER=10) |
 | `violation_type` | Parsed violation categories (NO PARKING, WRONG PARKING, etc.) |
 | `time_multiplier` | Hour-of-day traffic impact factor (peak hours weighted higher) |
 | `hour`, `date` | Temporal fields for pattern analysis |
@@ -160,8 +160,8 @@ data_cleaning.py → violations_clean.pkl
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd kavach
+git clone https://github.com/SaarthakManocha/KAVACH---Parking-Congestion-Intelligence.git
+cd KAVACH---Parking-Congestion-Intelligence
 ```
 
 ### 2. Install Python Dependencies
@@ -262,7 +262,7 @@ Greedy patrol deployment engine with travel-time constraints:
 - **Output:** `patrol_plan.json` (211 plan entries, 30 unit itineraries, fleet summary)
 
 ### Module 4: Enforcement Audit (`module4_enforcement.py`)
-Detects per-station enforcement rate anomalies against the city-wide average (85.7%).
+Detects per-station enforcement rate anomalies against the city-wide average (85.7%). SHAP-based anomaly explanation — each flagged station includes top contributing factors with direction and magnitude.
 
 - **Input:** `violations_clean.pkl`
 - **Output:** `enforcement_anomalies.json` (54 police stations)
@@ -274,10 +274,10 @@ LightGBM model predicting hourly violation counts per zone. Features include hou
 - **Output:** `zone_temporal_predictions.json` (15,312 predictions: 638 zones × 24 hours)
 
 ### Module 6: Counterfactual (`module6_counterfactual.py`)
-What-if scenario modeling: estimates violation reduction under different enforcement rates (70%, 85%, 95%).
+What-if scenario modeling: estimates violation reduction under different enforcement rates (50%–100% in 5pp steps). Confidence intervals on all projections (±20%, 95% CI).
 
 - **Input:** `zone_congestiq.json`, `violations_clean.pkl`
-- **Output:** `counterfactual.json` (3 enforcement scenarios)
+- **Output:** `counterfactual.json` (11 enforcement scenarios: 50%–100% in 5pp steps)
 
 ### Module 7: Junction Archetypes (`module7_archetypes.py`)
 Behavioral clustering of junctions based on violation patterns, vehicle mix, and temporal profiles.
