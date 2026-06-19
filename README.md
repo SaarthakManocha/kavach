@@ -409,6 +409,6 @@ Unit numbers, distances, and travel times are mathematical calculations based on
 ---
 
 <p align="center">
-  <strong>Built for Smart India Hackathon 2024</strong><br/>
+  <strong>Built for Gridlock 2.0 Hackathon by Flipkart</strong><br/>
   <em>Team KAVACH — Bengaluru Traffic Intelligence</em>
 </p>
