@@ -26,7 +26,7 @@ export default function EnforcementChart({ data, onBarClick }) {
     <div className="chart-card full-width">
       <h3>Enforcement Anomaly Analysis</h3>
       <ResponsiveContainer width="100%" height={Math.max(400, sorted.length * 28)}>
-        <BarChart data={sorted} layout="vertical" margin={{ top: 5, right: 30, left: 120, bottom: 5 }}
+        <BarChart data={sorted} layout="vertical" margin={{ top: 25, right: 40, left: 120, bottom: 5 }}
           onClick={(e) => {
             if (e && e.activePayload && onBarClick) {
               onBarClick(e.activePayload[0].payload.police_station);
