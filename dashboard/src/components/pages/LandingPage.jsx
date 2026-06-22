@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Shield, Radio, BarChart3, CalendarClock, ArrowRight, MapPin, AlertTriangle, TrendingUp, ShieldCheck, ArrowDown, ChevronRight } from 'lucide-react';
 import { fetchHeatmap, fetchEnforcement } from '../../utils/api';
 import { useAnimatedCounter } from '../../hooks/useAnimatedCounter';
+import TextType from '../common/TextType';
 
 function SnapshotCard({ label, value, icon: Icon, color }) {
   const animated = useAnimatedCounter(value, 1400, value > 100 ? 0 : 1);
@@ -177,14 +178,6 @@ export default function LandingPage() {
           </div>
           <h1>KAVACH</h1>
         </div>
-        <div style={{ display: 'flex', gap: 12 }}>
-          <button className="btn-ghost" onClick={() => navigate('/dashboard')}>
-            Dashboard
-          </button>
-          <button className="btn-primary" onClick={() => navigate('/dashboard')}>
-            Enter Platform <ArrowRight size={14} />
-          </button>
-        </div>
       </nav>
 
       {/* Hero */}
@@ -192,22 +185,15 @@ export default function LandingPage() {
         <div className="hero-content">
           <div className="hero-eyebrow">Urban Intelligence Platform</div>
           <h2>
-            From Reactive Enforcement to{' '}
-            <strong>Predictive Intelligence.</strong>
+            <TextType text="From Reactive Enforcement to Predictive Intelligence." />
           </h2>
           <p className="hero-description">
             Real-time monitoring, analytical intelligence, and enforcement planning
             for urban congestion management across Bengaluru.
           </p>
           <div className="hero-ctas">
-            <button className="btn-primary" onClick={() => navigate('/operations/overview')}>
-              Open Operations Center <ArrowRight size={14} />
-            </button>
-            <button className="btn-ghost" onClick={() => navigate('/analytics/summary')}>
-              Explore Analytics
-            </button>
-            <button className="btn-ghost" onClick={() => navigate('/patrol/deployment')}>
-              Patrol Planning
+            <button className="btn-primary" onClick={() => navigate('/dashboard')}>
+              Open Dashboard <ArrowRight size={14} />
             </button>
           </div>
         </div>
