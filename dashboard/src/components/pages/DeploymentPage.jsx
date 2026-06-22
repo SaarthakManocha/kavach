@@ -40,7 +40,7 @@ export default function DeploymentPage() {
 
   return (
     <div>
-      <PageHeader title="Deployment Schedule" description="ML-predicted unit demand mapped against routed fleet capacity across 24 hours." />
+      <PageHeader title="Deployment Schedule" description="Cross-references ML-predicted traffic demand with active fleet capacity across a 24-hour cycle. Automatically generates optimized patrol itineraries for field units, ensuring right-place, right-time deployment." />
 
       {/* Fleet Summary KPIs */}
       {fleet.total_units && (

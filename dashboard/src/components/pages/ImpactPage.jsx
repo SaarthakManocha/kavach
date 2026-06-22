@@ -23,7 +23,7 @@ const deliveryHours = useAnimatedCounter(result?.scenario?.flipkart?.delivery_ho
 
   return (
     <div>
-      <PageHeader title="Impact Assessment" description="Quantified impact of increasing enforcement rate to 90% — before and after comparison." />
+      <PageHeader title="Impact Assessment" description="Projects the precise reduction in total violations if target enforcement rates are met. Equips resource planners with hard data to justify requests for additional manpower by demonstrating exact ROI." />
 
       {result && (
         <>

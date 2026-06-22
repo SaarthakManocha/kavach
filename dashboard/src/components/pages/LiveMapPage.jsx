@@ -51,7 +51,7 @@ export default function LiveMapPage() {
 
   return (
     <div>
-      <PageHeader title="Live Map" description="Real-time congestion monitoring across Bengaluru." />
+      <PageHeader title="Live Map" description="Visualizes the current CongestionIQ of every active zone. Helps traffic controllers instantly identify cascading congestion patterns, automatically highlighting adjacent zones at risk of secondary gridlock." />
 
       {/* KPI strip */}
       <div className="stat-cards-row" style={{ marginBottom: 16 }}>

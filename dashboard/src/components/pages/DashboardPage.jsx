@@ -125,7 +125,7 @@ export default function DashboardPage() {
 
   return (
     <div>
-      <PageHeader title="Dashboard" description="Executive overview of KAVACH operations across Bengaluru." />
+      <PageHeader title="Dashboard" description="Executive command center consolidating network-wide intelligence. Delivers personalized daily briefings and critical operational alerts directly to senior leadership for immediate strategic action." />
 
       {/* KPI Cards */}
       <div className="stat-cards-row">

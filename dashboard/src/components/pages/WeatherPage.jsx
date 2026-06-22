@@ -31,10 +31,7 @@ export default function WeatherPage() {
 
   return (
     <div>
-      <PageHeader
-        title="Weather Sensitivity"
-        description="How rainfall affects violation patterns across Bengaluru zones — based on historical data (Nov 2023 – April 2024)."
-      />
+      <PageHeader title="Weather Sensitivity" description="Identifies junctions that experience severe violation spikes during rainfall. Helps local station commanders proactively deploy personnel ahead of storm cells based on historical sensitivity profiles."
 
       {/* City KPIs */}
       <div className="stat-cards-row">

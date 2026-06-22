@@ -30,7 +30,7 @@ export default function AnalyticsSummary() {
 
   return (
     <div>
-      <PageHeader title="Executive Summary" description="Key performance indicators and insights across enforcement operations." />
+      <PageHeader title="Executive Summary" description="High-level aggregation of network KPIs and predictive insights. Serves as the daily intelligence digest for the Police Commissioner, distilling complex anomaly data into a prioritized list of immediate actions." />
 
       <div className="stat-cards-row">
         <StatCard label="Total Violations" value={totalViolations} icon={BarChart3} accent="var(--accent)" subtext="Nov 2023 – Apr 2024 · 54 stations · ~1,640 violations/day" />

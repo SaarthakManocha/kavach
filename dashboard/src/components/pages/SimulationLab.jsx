@@ -14,7 +14,7 @@ export default function SimulationLab() {
 
   return (
     <div>
-      <PageHeader title="Simulation Lab" description="Model the impact of enforcement rate changes on congestion across the network." />
+      <PageHeader title="Simulation Lab" description="Interactive sandbox for command staff to model policy changes. DCPs can simulate the localized impact of increasing enforcement capacity, visualizing potential congestion reductions before committing resources." />
 
       {/* Guided steps */}
       <div className="guided-steps">
