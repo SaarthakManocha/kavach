@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_URL || 'https://kavach-api-5dnm.onrender.com/api';
+const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:8000') + '/api'
 
 export const fetchHeatmap = () =>
   fetch(`${API_BASE}/heatmap`).then(r => r.json());
@@ -8,6 +8,9 @@ export const fetchCascade = (zoneId) =>
 
 export const fetchPatrolPlan = (hour) =>
   fetch(`${API_BASE}/patrol-plan${hour !== undefined ? `?hour=${hour}` : ''}`).then(r => r.json());
+
+export const fetchZoneAction = (zoneId) =>
+  fetch(`${API_BASE}/zone-action/${zoneId}`).then(r => r.json());
 
 export const fetchPatrolItineraries = () =>
   fetch(`${API_BASE}/patrol-itineraries`).then(r => r.json());
@@ -23,4 +26,7 @@ export const fetchArchetypes = () =>
 
 export const fetchWeatherSensitivity = () =>
   fetch(`${API_BASE}/weather-sensitivity`).then(r => r.json());
+
+export const fetchDailyBriefing = () =>
+  fetch(`${API_BASE}/daily-briefing`).then(r => r.json());
 
