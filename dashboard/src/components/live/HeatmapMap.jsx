@@ -18,6 +18,17 @@ function getZoneRadius(score) {
   return min + ((clamped - 100) / (2000 - 100)) * (max - min);
 }
 
+// Distance formula to calculate if a zone is within the cascade ring
+function getDistanceMeters(lat1, lon1, lat2, lon2) {
+  const R = 6371e3;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
 /** Sub-component to switch tile layer when theme changes */
 function ThemeAwareTiles() {
   const map = useMap();
@@ -41,22 +52,11 @@ function ThemeAwareTiles() {
 }
 
 /** Cascade animation rings */
-function CascadeRings({ cascadeData }) {
-  const [visibleFrames, setVisibleFrames] = useState(0);
-
-  useEffect(() => {
-    setVisibleFrames(0);
-    const timers = [
-      setTimeout(() => setVisibleFrames(1), 300),
-      setTimeout(() => setVisibleFrames(2), 1300),
-      setTimeout(() => setVisibleFrames(3), 2300),
-    ];
-    return () => timers.forEach(clearTimeout);
-  }, [cascadeData]);
-
+function CascadeRings({ cascadeData, visibleFrames }) {
   if (!cascadeData || !cascadeData.frames) return null;
 
-  const colors = ['rgba(139, 92, 246, 0.6)', 'rgba(139, 92, 246, 0.35)', 'rgba(139, 92, 246, 0.15)'];
+  // Reduced transparency to make the rings more solid and clear
+  const colors = ['rgba(139, 92, 246, 1.0)', 'rgba(139, 92, 246, 0.8)', 'rgba(139, 92, 246, 0.6)'];
   const radii = [300, 700, 1400];
 
   return (
@@ -69,8 +69,8 @@ function CascadeRings({ cascadeData }) {
           pathOptions={{
             color: colors[i],
             fillColor: colors[i],
-            fillOpacity: 0.15,
-            weight: 2,
+            fillOpacity: 0.3, // Slightly raised fill opacity so it stands out but map still visible
+            weight: 3,        // Thicker border
           }}
         />
       ))}
@@ -79,6 +79,25 @@ function CascadeRings({ cascadeData }) {
 }
 
 export default function HeatmapMap({ zones, patrolData, cascadeData, selectedZone, onZoneClick }) {
+  const [cascadeStep, setCascadeStep] = useState(0);
+
+  // Lifted the timer logic so HeatmapMap knows how far the cascade has rippled
+  useEffect(() => {
+    if (cascadeData) {
+      setCascadeStep(0);
+      const timers = [
+        setTimeout(() => setCascadeStep(1), 300),
+        setTimeout(() => setCascadeStep(2), 1300),
+        setTimeout(() => setCascadeStep(3), 2300),
+      ];
+      return () => timers.forEach(clearTimeout);
+    } else {
+      setCascadeStep(0);
+    }
+  }, [cascadeData]);
+
+  const radii = [300, 700, 1400];
+
   return (
     <div className="map-container">
       <MapContainer
@@ -90,31 +109,48 @@ export default function HeatmapMap({ zones, patrolData, cascadeData, selectedZon
         <ThemeAwareTiles />
 
         {/* Heatmap zone circles */}
-        {zones.map(zone => (
-          <CircleMarker
-            key={zone.zone_id}
-            center={[zone.lat, zone.lng]}
-            radius={getZoneRadius(zone.congestiq_score)}
-            pathOptions={{
-              color: getZoneColor(zone.congestiq_score),
-              fillColor: getZoneColor(zone.congestiq_score),
-              fillOpacity: 0.7,
-              weight: selectedZone?.zone_id === zone.zone_id ? 3 : 1,
-            }}
-            eventHandlers={{
-              click: () => onZoneClick(zone),
-            }}
-          >
-            <Tooltip direction="top" offset={[0, -10]} opacity={0.95}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12 }}>
-               <strong>{zone.display_name || zone.zone_id}</strong><br />
-               <span style={{ opacity: 0.6, fontSize: 10 }}>{zone.zone_id}</span><br />
-               Score: {Number(zone.congestiq_score).toLocaleString()}<br />
-               {zone.primary_violation}
-              </div>
-            </Tooltip>
-          </CircleMarker>
-        ))}
+        {zones.map(zone => {
+          let glowColor = getZoneColor(zone.congestiq_score);
+          let glowWeight = selectedZone?.zone_id === zone.zone_id ? 3 : 1;
+          let fillOpacity = 0.7;
+
+          // Highlight zones if they are touched by the current cascade ripple
+          if (cascadeData && cascadeStep > 0) {
+            const currentRadius = radii[cascadeStep - 1];
+            const dist = getDistanceMeters(cascadeData.center_lat, cascadeData.center_lng, zone.lat, zone.lng);
+            if (dist <= currentRadius) {
+              glowColor = '#ff0000'; // Bright red for cascaded zones
+              glowWeight = 4;
+              fillOpacity = 1.0;
+            }
+          }
+
+          return (
+            <CircleMarker
+              key={zone.zone_id}
+              center={[zone.lat, zone.lng]}
+              radius={getZoneRadius(zone.congestiq_score)}
+              pathOptions={{
+                color: glowColor,
+                fillColor: glowColor,
+                fillOpacity: fillOpacity,
+                weight: glowWeight,
+              }}
+              eventHandlers={{
+                click: () => onZoneClick(zone),
+              }}
+            >
+              <Tooltip direction="top" offset={[0, -10]} opacity={0.95}>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12 }}>
+                 <strong>{zone.display_name || zone.zone_id}</strong><br />
+                 <span style={{ opacity: 0.6, fontSize: 10 }}>{zone.zone_id}</span><br />
+                 Score: {Number(zone.congestiq_score).toLocaleString()}<br />
+                 {zone.primary_violation}
+                </div>
+              </Tooltip>
+            </CircleMarker>
+          );
+        })}
 
         {/* Patrol markers */}
         {patrolData && patrolData.slice(0, 10).map((p, i) => (
@@ -139,7 +175,7 @@ export default function HeatmapMap({ zones, patrolData, cascadeData, selectedZon
         ))}
 
         {/* Cascade animation */}
-        {cascadeData && <CascadeRings cascadeData={cascadeData} />}
+        {cascadeData && <CascadeRings cascadeData={cascadeData} visibleFrames={cascadeStep} />}
       </MapContainer>
     </div>
   );
