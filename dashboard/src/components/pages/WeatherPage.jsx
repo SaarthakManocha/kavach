@@ -31,7 +31,7 @@ export default function WeatherPage() {
 
   return (
     <div>
-      <PageHeader title="Weather Sensitivity" description="Identifies junctions that experience severe violation spikes during rainfall. Helps local station commanders proactively deploy personnel ahead of storm cells based on historical sensitivity profiles."
+      <PageHeader title="Weather Sensitivity" description="Identifies junctions that experience severe violation spikes during rainfall. Helps local station commanders proactively deploy personnel ahead of storm cells based on historical sensitivity profiles." />
 
       {/* City KPIs */}
       <div className="stat-cards-row">
