@@ -1,4 +1,4 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ResponsiveContainer, Cell } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ResponsiveContainer, Cell, LabelList } from 'recharts';
 
 const CustomTooltip = ({ active, payload }) => {
   if (!active || !payload || !payload.length) return null;
@@ -69,6 +69,7 @@ export default function EnforcementChart({ data, onBarClick }) {
                 fillOpacity={0.85}
               />
             ))}
+            <LabelList dataKey="enforcement_rate" position="right" formatter={(v) => `${(v * 100).toFixed(0)}%`} style={{ fill: '#94a3b8', fontSize: 11 }} />
           </Bar>
         </BarChart>
       </ResponsiveContainer>

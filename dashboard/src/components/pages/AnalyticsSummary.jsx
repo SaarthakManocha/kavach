@@ -34,7 +34,7 @@ export default function AnalyticsSummary() {
 
       <div className="stat-cards-row">
         <StatCard label="Total Violations" value={totalViolations} icon={BarChart3} accent="var(--accent)" subtext="Nov 2023 – Apr 2024 · 54 stations · ~1,640 violations/day" />
-        <StatCard label="Anomalous Stations" value={anomalousCount} icon={AlertTriangle} accent="var(--danger)" subtext="15% of stations flagged · Immediate DCP review required" />
+        <StatCard label="Anomalous Stations" value={anomalousCount} icon={AlertTriangle} accent="var(--danger)" subtext="15% of stations flagged · Immediate DCP review required" urgent={true} />
         <StatCard label="Avg Enforcement Rate" value={avgRate} decimals={1} suffix="%" icon={ShieldCheck} accent="var(--success)" subtext="BTP network avg · Target: 90% · Gap: 4.6 percentage points" />
         <StatCard label="Junction Archetypes" value={archetypeCount} icon={Waypoints} accent="var(--accent)" subtext="164 named junctions · 5 behaviour patterns → drives patrol strategy" />
       </div>
