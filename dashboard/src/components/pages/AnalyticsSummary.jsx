@@ -33,16 +33,15 @@ export default function AnalyticsSummary() {
       <PageHeader title="Executive Summary" description="Key performance indicators and insights across enforcement operations." />
 
       <div className="stat-cards-row">
-        <StatCard label="Total Violations" value={totalViolations} icon={BarChart3} accent="var(--accent)" subtext="Across all stations" />
-        <StatCard label="Anomalous Stations" value={anomalousCount} icon={AlertTriangle} accent="var(--danger)" subtext={`of ${enforcement.length} total`} />
-        <StatCard label="Avg Enforcement Rate" value={avgRate} decimals={1} suffix="%" icon={ShieldCheck} accent="var(--success)" subtext="Across BTP" />
-        <StatCard label="Junction Archetypes" value={archetypeCount} icon={Waypoints} accent="var(--accent)" subtext={`${archetypes.length} junctions classified`} />
+        <StatCard label="Total Violations" value={totalViolations} icon={BarChart3} accent="var(--accent)" subtext="Nov 2023 – Apr 2024 · 54 stations · ~1,640 violations/day" />
+        <StatCard label="Anomalous Stations" value={anomalousCount} icon={AlertTriangle} accent="var(--danger)" subtext="15% of stations flagged · Immediate DCP review required" />
+        <StatCard label="Avg Enforcement Rate" value={avgRate} decimals={1} suffix="%" icon={ShieldCheck} accent="var(--success)" subtext="BTP network avg · Target: 90% · Gap: 4.6 percentage points" />
+        <StatCard label="Junction Archetypes" value={archetypeCount} icon={Waypoints} accent="var(--accent)" subtext="164 named junctions · 5 behaviour patterns → drives patrol strategy" />
       </div>
 
       {/* Key Insights */}
       <div className="insight-card" style={{ marginBottom: 16 }}>
-        {anomalousCount} of {enforcement.length} police stations show anomalous enforcement patterns.
-        The average enforcement rate across BTP is {avgRate.toFixed(1)}%, with {archetypeCount} distinct junction behaviour patterns identified.
+        KAVACH has flagged 8 of 54 stations for anomalous enforcement — Kodigehalli (55%) and Hebbala critically below threshold. Network enforcement rate stands at 85.4%, up 9 points since November. Temporal models predict 24h violation counts across 638 active zones.
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
@@ -69,29 +68,22 @@ export default function AnalyticsSummary() {
           </div>
         </div>
 
-        {/* Quick links */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          <Link to="/analytics/enforcement" className="quick-link-card">
-            <div className="ql-icon"><ShieldCheck size={18} /></div>
-            <div className="ql-text">
-              <h4>Enforcement Analysis</h4>
-              <p>Anomaly detection across stations</p>
+        {/* Priority Actions */}
+        <div className="panel">
+          <div className="panel-header" style={{ marginBottom: 12 }}>
+            <h3 style={{ fontSize: 11, color: '#94a3b8', letterSpacing: 1 }}>TODAY'S PRIORITY ACTIONS</h3>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            <div className="alert-item" style={{ borderLeft: '3px solid var(--danger)', paddingLeft: 10, display: 'block', lineHeight: 1.5 }}>
+              <span style={{ fontWeight: 600, color: 'var(--danger)' }}>[!] Kodigehalli</span> — 55% enforcement rate &middot; Deploy 2 units &middot; Peak hour 9am
             </div>
-          </Link>
-          <Link to="/analytics/trends" className="quick-link-card">
-            <div className="ql-icon"><BarChart3 size={18} /></div>
-            <div className="ql-text">
-              <h4>Violation Trends</h4>
-              <p>Monthly patterns and growth</p>
+            <div className="alert-item" style={{ borderLeft: '3px solid var(--danger)', paddingLeft: 10, display: 'block', lineHeight: 1.5 }}>
+              <span style={{ fontWeight: 600, color: 'var(--danger)' }}>[!] Hennuru</span> — 66% enforcement rate &middot; 892 violations logged &middot; Audit required
             </div>
-          </Link>
-          <Link to="/analytics/archetypes" className="quick-link-card">
-            <div className="ql-icon"><Waypoints size={18} /></div>
-            <div className="ql-text">
-              <h4>Junction Archetypes</h4>
-              <p>Behaviour classification</p>
+            <div className="alert-item" style={{ borderLeft: '3px solid var(--accent)', paddingLeft: 10, display: 'block', lineHeight: 1.5 }}>
+              <span style={{ fontWeight: 600, color: 'var(--accent)' }}>[↑] tdr1v6</span> — CongestIQ 784,374 &middot; Highest risk zone &middot; Monitor cascade spread
             </div>
-          </Link>
+          </div>
         </div>
       </div>
     </div>
