@@ -374,7 +374,10 @@ def enforcement():
 
     Source: outputs/enforcement_anomalies.json (produced by Module 4).
     """
-    return load_json_or_mock("enforcement_anomalies.json", MOCK_ENFORCEMENT)
+    data = load_json_or_mock("enforcement_anomalies.json", MOCK_ENFORCEMENT)
+    if isinstance(data, list):
+        data = [s for s in data if s.get("police_station") not in ("No Police Station", None, "")]
+    return data
 
 
 @app.get("/api/counterfactual")
