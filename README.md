@@ -68,7 +68,7 @@ This file is produced by `modules/data_cleaning.py` from the raw CSV but is incl
 
 | Feature | Description |
 |---|---|
-| 🗺️ **Live Heatmap** | 789-zone interactive heatmap with real-time CongestIQ scores |
+| 🗺️ **Live Heatmap** | 789-zone interactive heatmap with real-time CongestIQ scores and dynamic cascade spread animations |
 | 📊 **Deployment Grid** | 24-hour × 15-zone patrol schedule with ML-predicted unit demand |
 | 🚔 **Unit Itineraries** | Per-unit route plans with calibrated distances (±7% vs Google Maps) |
 | 🌧️ **Weather Correlation** | Rainfall-violation analysis with zone-specific sensitivity scores |
