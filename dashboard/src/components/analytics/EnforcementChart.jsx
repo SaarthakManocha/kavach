@@ -19,8 +19,10 @@ export default function EnforcementChart({ data, onBarClick }) {
 
   const avgRate = data.reduce((sum, d) => sum + d.enforcement_rate, 0) / data.length;
 
-  // Sort by enforcement_rate for visual clarity
-  const sorted = [...data].sort((a, b) => a.enforcement_rate - b.enforcement_rate);
+  // Sort by enforcement_rate for visual clarity; exclude unassigned entries from display
+  const sorted = [...data]
+    .filter(d => d.police_station && d.police_station !== 'No Police Station')
+    .sort((a, b) => a.enforcement_rate - b.enforcement_rate);
 
   return (
     <div className="chart-card full-width">
