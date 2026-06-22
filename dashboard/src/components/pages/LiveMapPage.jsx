@@ -51,7 +51,7 @@ export default function LiveMapPage() {
 
   return (
     <div>
-      <PageHeader title="Live Map" description="Visualizes the current CongestionIQ of every active zone. Helps traffic controllers instantly identify cascading congestion patterns, automatically highlighting adjacent zones at risk of secondary gridlock." />
+      <PageHeader title="Live Map" description="Interactive real-time map plotting CongestionIQ severity and active cascades across the city grid. Enables control room operators to visually track congestion spread, dynamically click into affected zones, and dispatch units before traffic gridlock expands." />
 
       {/* KPI strip */}
       <div className="stat-cards-row" style={{ marginBottom: 16 }}>

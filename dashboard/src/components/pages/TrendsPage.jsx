@@ -4,7 +4,7 @@ import TrendChart from '../analytics/TrendChart';
 export default function TrendsPage() {
   return (
     <div>
-      <PageHeader title="Violation Trends" description="Tracks historical and projected violation trends across all zones. Empowers command staff to validate the effectiveness of their interventions by comparing local growth curves against network baselines." />
+      <PageHeader title="Violation Trends" description="Interactive time-series analysis of historical violation data across various temporal scales. Empowers analytical staff to identify long-term seasonal trends, evaluate the historical effectiveness of past interventions, and compare specific zones against the city-wide baseline." />
 
       <div className="insight-card">
         Violations increased by 18% from January to March 2024, peaking at 62,100 in March.

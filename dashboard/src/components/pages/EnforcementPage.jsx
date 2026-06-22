@@ -26,7 +26,7 @@ export default function EnforcementPage() {
 
   return (
     <div>
-      <PageHeader title="Enforcement Analysis" description="Isolation Forest ML model flagging anomalous enforcement rates. Click any bar for a SHAP feature breakdown. Empowers higher command with data-driven accountability reports to understand exactly why specific stations are underperforming." />
+      <PageHeader title="Enforcement Analysis" description="Utilizes an Isolation Forest ML model to detect police stations with statistically anomalous enforcement patterns relative to their violation volume. Click any station's bar to view a SHAP feature breakdown, empowering higher command with data-driven accountability reports." />
 
       {/* KPI strip */}
       <div className="stat-cards-row" style={{ marginBottom: 20 }}>

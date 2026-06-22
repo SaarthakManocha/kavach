@@ -125,7 +125,7 @@ export default function DashboardPage() {
 
   return (
     <div>
-      <PageHeader title="Dashboard" description="Executive command center consolidating network-wide intelligence. Delivers personalized daily briefings and critical operational alerts directly to senior leadership for immediate strategic action." />
+      <PageHeader title="Dashboard" description="Central command dashboard that aggregates network-wide congestion metrics, active anomaly alerts, and real-time operational status. Designed for senior leadership to instantly grasp system health and prioritize the day's most urgent enforcement actions." />
 
       {/* KPI Cards */}
       <div className="stat-cards-row">

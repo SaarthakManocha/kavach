@@ -35,7 +35,7 @@ export default function OperationsOverview() {
 
   return (
     <div>
-      <PageHeader title="Operations Overview" description="Provides a birds-eye view of active patrols and localized anomaly detection. Enables the Central Command Center to rapidly allocate reserve units to emergent hotspots across the entire grid in real-time." />
+      <PageHeader title="Operations Overview" description="Provides a comprehensive, real-time snapshot of active field operations, patrol unit locations, and localized anomaly detections. Enables the Central Command Center to monitor network health continuously and rapidly allocate reserve units to emergent hotspots as they develop." />
 
       <div className="stat-cards-row">
         <StatCard label="Zones Monitored" value={totalZones} icon={MapPin} accent="var(--accent)" />

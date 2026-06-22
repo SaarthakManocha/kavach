@@ -50,7 +50,7 @@ export default function HighRiskZones() {
 
   return (
     <div>
-      <PageHeader title="High Risk Zones" description="Ranks the most critical junctions based on the proprietary CongestionIQ algorithm. Delivers actionable, zone-specific deployment recommendations directly to station commanders to neutralize high-severity traffic nodes." />
+      <PageHeader title="High Risk Zones" description="A prioritized tabular breakdown of all monitored zones, sorted by immediate severity and total CongestionIQ. Provides field commanders with granular violation data, primary congestion drivers, and specific deployment recommendations to systematically neutralize the highest-risk chokepoints." />
 
       <div style={{ display: 'flex', gap: 16, alignItems: 'center', marginBottom: 20 }}>
         <div className="search-wrapper">
