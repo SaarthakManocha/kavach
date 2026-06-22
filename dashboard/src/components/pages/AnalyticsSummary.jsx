@@ -69,19 +69,19 @@ export default function AnalyticsSummary() {
         </div>
 
         {/* Priority Actions */}
-        <div className="panel">
+        <div className="panel" style={{ display: 'flex', flexDirection: 'column' }}>
           <div className="panel-header" style={{ marginBottom: 12 }}>
             <h3 style={{ fontSize: 11, color: '#94a3b8', letterSpacing: 1 }}>TODAY'S PRIORITY ACTIONS</h3>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            <div className="alert-item" style={{ borderLeft: '3px solid var(--danger)', paddingLeft: 10, display: 'block', lineHeight: 1.5 }}>
-              <span style={{ fontWeight: 600, color: 'var(--danger)' }}>[!] Kodigehalli</span> — 55% enforcement rate &middot; Deploy 2 units &middot; Peak hour 9am
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, flex: 1 }}>
+            <div className="alert-item" style={{ borderLeft: '3px solid var(--danger)', paddingLeft: 10, lineHeight: 1.5, flex: 1, display: 'flex', alignItems: 'center' }}>
+              <div><span style={{ fontWeight: 600, color: 'var(--danger)' }}>[!] Kodigehalli</span> — 55% enforcement rate &middot; Deploy 2 units &middot; Peak hour 9am</div>
             </div>
-            <div className="alert-item" style={{ borderLeft: '3px solid var(--danger)', paddingLeft: 10, display: 'block', lineHeight: 1.5 }}>
-              <span style={{ fontWeight: 600, color: 'var(--danger)' }}>[!] Hennuru</span> — 66% enforcement rate &middot; 892 violations logged &middot; Audit required
+            <div className="alert-item" style={{ borderLeft: '3px solid var(--danger)', paddingLeft: 10, lineHeight: 1.5, flex: 1, display: 'flex', alignItems: 'center' }}>
+              <div><span style={{ fontWeight: 600, color: 'var(--danger)' }}>[!] Hennuru</span> — 66% enforcement rate &middot; 892 violations logged &middot; Audit required</div>
             </div>
-            <div className="alert-item" style={{ borderLeft: '3px solid var(--accent)', paddingLeft: 10, display: 'block', lineHeight: 1.5 }}>
-              <span style={{ fontWeight: 600, color: 'var(--accent)' }}>[↑] tdr1v6</span> — CongestIQ 784,374 &middot; Highest risk zone &middot; Monitor cascade spread
+            <div className="alert-item" style={{ borderLeft: '3px solid var(--accent)', paddingLeft: 10, lineHeight: 1.5, flex: 1, display: 'flex', alignItems: 'center' }}>
+              <div><span style={{ fontWeight: 600, color: 'var(--accent)' }}>[↑] tdr1v6</span> — CongestIQ 784,374 &middot; Highest risk zone &middot; Monitor cascade spread</div>
             </div>
           </div>
         </div>
