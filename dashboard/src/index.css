@@ -406,7 +406,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 14px;
   color: var(--text-secondary);
   line-height: 1.5;
-  max-width: 600px;
+  max-width: 100%;
 }
 
 /* ── Stat Card ── */
