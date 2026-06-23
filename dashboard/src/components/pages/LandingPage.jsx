@@ -6,6 +6,7 @@ import TextType from '../common/TextType';
 import logoUrl from '../../assets/logo.png';
 import CountUp from '../common/CountUp';
 import ScrollFloat from '../common/ScrollFloat';
+import FadeUp from '../common/FadeUp';
 
 function SnapshotCard({ label, value, icon: Icon, color }) {
   return (
@@ -210,12 +211,14 @@ export default function LandingPage() {
           Operational Snapshot
         </ScrollFloat>
         <p>Current state across Bengaluru's congestion monitoring network.</p>
-        <div className="snapshot-grid">
-          <SnapshotCard label="Active Zones" value={zones} icon={MapPin} color="var(--accent)" />
-          <SnapshotCard label="Avg CongestionIQ" value={avgCIQ} icon={TrendingUp} color="var(--warning)" />
-          <SnapshotCard label="Enforcement Rate" value={enfRate} icon={ShieldCheck} color="var(--success)" />
-          <SnapshotCard label="Anomaly Alerts" value={alerts} icon={AlertTriangle} color="var(--danger)" />
-        </div>
+        <FadeUp delay={0.2}>
+          <div className="snapshot-grid">
+            <SnapshotCard label="Active Zones" value={zones} icon={MapPin} color="var(--accent)" />
+            <SnapshotCard label="Avg CongestionIQ" value={avgCIQ} icon={TrendingUp} color="var(--warning)" />
+            <SnapshotCard label="Enforcement Rate" value={enfRate} icon={ShieldCheck} color="var(--success)" />
+            <SnapshotCard label="Anomaly Alerts" value={alerts} icon={AlertTriangle} color="var(--danger)" />
+          </div>
+        </FadeUp>
       </section>
 
       {/* Capabilities */}
@@ -224,23 +227,25 @@ export default function LandingPage() {
         <ScrollFloat animationDuration={1} ease="back.inOut(2)" scrollStart="center bottom+=50%" scrollEnd="bottom bottom-=40%" stagger={0.03}>
           Intelligence at Every Level
         </ScrollFloat>
-        <div className="capabilities-grid">
-          <div className="capability-card" onClick={() => navigate('/operations/overview')} style={{ cursor: 'pointer' }}>
-            <div className="cap-icon"><Radio size={20} /></div>
-            <h4>Live Operations</h4>
-            <p>Monitor congestion in real time across 789 zones. Identify critical hotspots and cascade patterns before they escalate.</p>
+        <FadeUp delay={0.2}>
+          <div className="capabilities-grid">
+            <div className="capability-card" onClick={() => navigate('/operations/overview')} style={{ cursor: 'pointer' }}>
+              <div className="cap-icon"><Radio size={20} /></div>
+              <h4>Live Operations</h4>
+              <p>Monitor congestion in real time across 789 zones. Identify critical hotspots and cascade patterns before they escalate.</p>
+            </div>
+            <div className="capability-card" onClick={() => navigate('/analytics/summary')} style={{ cursor: 'pointer' }}>
+              <div className="cap-icon"><BarChart3 size={20} /></div>
+              <h4>Analytics</h4>
+              <p>Measure enforcement effectiveness with anomaly detection. Classify junction behaviours into actionable archetypes.</p>
+            </div>
+            <div className="capability-card" onClick={() => navigate('/patrol/deployment')} style={{ cursor: 'pointer' }}>
+              <div className="cap-icon"><CalendarClock size={20} /></div>
+              <h4>Patrol Planning</h4>
+              <p>Simulate enforcement scenarios. Optimise 24-hour deployment strategies. Quantify projected congestion reduction.</p>
+            </div>
           </div>
-          <div className="capability-card" onClick={() => navigate('/analytics/summary')} style={{ cursor: 'pointer' }}>
-            <div className="cap-icon"><BarChart3 size={20} /></div>
-            <h4>Analytics</h4>
-            <p>Measure enforcement effectiveness with anomaly detection. Classify junction behaviours into actionable archetypes.</p>
-          </div>
-          <div className="capability-card" onClick={() => navigate('/patrol/deployment')} style={{ cursor: 'pointer' }}>
-            <div className="cap-icon"><CalendarClock size={20} /></div>
-            <h4>Patrol Planning</h4>
-            <p>Simulate enforcement scenarios. Optimise 24-hour deployment strategies. Quantify projected congestion reduction.</p>
-          </div>
-        </div>
+        </FadeUp>
       </section>
 
       {/* Why KAVACH — Before / With / Outcomes progression */}
@@ -254,7 +259,7 @@ export default function LandingPage() {
           silently amplifies congestion across the city.
         </p>
 
-        <div className="transformation-flow">
+        <FadeUp delay={0.2} className="transformation-flow">
           {/* Before */}
           <div className="transform-card transform-before">
             <div className="transform-label">Before KAVACH</div>
@@ -307,7 +312,7 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
-        </div>
+        </FadeUp>
       </section>
 
       {/* Footer */}
