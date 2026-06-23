@@ -1,0 +1,2 @@
+requirements.txt export-ignore
+dashboard/.env.production export-ignore
