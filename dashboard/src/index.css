@@ -1048,7 +1048,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .landing-hero {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.3fr;
   min-height: calc(100vh - 72px);
   padding: 0 60px;
   align-items: center;

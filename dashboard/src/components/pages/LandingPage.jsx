@@ -2,19 +2,18 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Shield, Radio, BarChart3, CalendarClock, ArrowRight, MapPin, AlertTriangle, TrendingUp, ShieldCheck, ArrowDown, ChevronRight } from 'lucide-react';
 import { fetchHeatmap, fetchEnforcement } from '../../utils/api';
-import { useAnimatedCounter } from '../../hooks/useAnimatedCounter';
 import TextType from '../common/TextType';
 import logoUrl from '../../assets/logo.png';
+import CountUp from '../common/CountUp';
 
 function SnapshotCard({ label, value, icon: Icon, color }) {
-  const animated = useAnimatedCounter(value, 1400, value > 100 ? 0 : 1);
   return (
     <div className="snapshot-card">
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
         <span className="snap-label">{label}</span>
         <Icon size={16} style={{ color }} />
       </div>
-      <span className="snap-value data-number">{animated}</span>
+      <CountUp from={0} to={value || 0} duration={2} separator="," className="snap-value data-number" />
     </div>
   );
 }
@@ -284,19 +283,19 @@ export default function LandingPage() {
             <div className="transform-label">Projected Outcomes</div>
             <div className="outcomes-grid">
               <div className="outcome-item">
-                <span className="outcome-value data-number">5.8%</span>
+                <div className="outcome-value data-number"><CountUp from={0} to={5.8} duration={2} />%</div>
                 <span className="outcome-label">Congestion Reduction</span>
               </div>
               <div className="outcome-item">
-                <span className="outcome-value data-number">7,226</span>
+                <div className="outcome-value data-number"><CountUp from={0} to={7226} duration={2} separator="," /></div>
                 <span className="outcome-label">Hours Saved / Month</span>
               </div>
               <div className="outcome-item">
-                <span className="outcome-value data-number">217</span>
+                <div className="outcome-value data-number"><CountUp from={0} to={217} duration={2} separator="," /></div>
                 <span className="outcome-label">Delivery Hours Saved</span>
               </div>
               <div className="outcome-item">
-                <span className="outcome-value data-number">789</span>
+                <div className="outcome-value data-number"><CountUp from={0} to={789} duration={2} separator="," /></div>
                 <span className="outcome-label">Zones Monitored</span>
               </div>
             </div>
