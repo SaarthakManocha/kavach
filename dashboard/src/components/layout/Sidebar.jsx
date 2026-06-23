@@ -51,7 +51,7 @@ export default function Sidebar() {
     <aside className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
       <div className="sidebar-brand">
         <div className="brand-icon">
-          <Shield size={18} />
+          <img src="/logo.png" alt="KAVACH Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
         </div>
         <div className="brand-text">
           <h1>KAVACH</h1>

@@ -174,7 +174,7 @@ export default function LandingPage() {
       <nav className="landing-nav">
         <div className="nav-brand">
           <div className="brand-mark">
-            <Shield size={18} />
+            <img src="/logo.png" alt="KAVACH Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
           </div>
           <h1>KAVACH</h1>
         </div>
