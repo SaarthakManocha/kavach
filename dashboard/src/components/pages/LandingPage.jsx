@@ -180,6 +180,11 @@ export default function LandingPage() {
           </div>
           <h1>KAVACH</h1>
         </div>
+        <div className="nav-actions">
+          <button className="btn-primary" onClick={() => navigate('/dashboard')}>
+            Open Dashboard <ArrowRight size={14} />
+          </button>
+        </div>
       </nav>
 
       {/* Hero */}
@@ -193,11 +198,6 @@ export default function LandingPage() {
             Real-time monitoring, analytical intelligence, and enforcement planning
             for urban congestion management across Bengaluru.
           </p>
-          <div className="hero-ctas">
-            <button className="btn-primary" onClick={() => navigate('/dashboard')}>
-              Open Dashboard <ArrowRight size={14} />
-            </button>
-          </div>
         </div>
         <div className="hero-visual">
           <CityTopologyVisual />
