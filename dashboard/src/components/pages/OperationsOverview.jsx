@@ -38,8 +38,8 @@ export default function OperationsOverview() {
       <PageHeader title="Operations Overview" description="Provides a comprehensive, real-time snapshot of active field operations, patrol unit locations, and localized anomaly detections. Enables the Central Command Center to monitor network health continuously and rapidly allocate reserve units to emergent hotspots as they develop." />
 
       <div className="stat-cards-row">
-        <StatCard label="Zones Monitored" value={totalZones} icon={MapPin} accent="var(--accent)" subtext="City-wide surveillance feeds active" />
-        <StatCard label="Avg CongestionIQ" value={avgCIQ} icon={TrendingUp} accent="var(--warning)" subtext="Overall network traffic severity" />
+        <StatCard label="Zones Monitored" value={totalZones} icon={MapPin} accent="var(--accent)" subtext="Monitored locations" />
+        <StatCard label="Avg CongestionIQ" value={avgCIQ} icon={TrendingUp} accent="var(--warning)" subtext="Across all zones" />
         <StatCard label="Critical Zones" value={criticalCount} icon={AlertTriangle} accent="var(--danger)" subtext="Severe congestion. Need attention." />
       </div>
 
