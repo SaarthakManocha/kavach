@@ -1429,15 +1429,19 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── Insight Card ── */
 .insight-card {
-  padding: 16px 20px;
-  border: 1px solid var(--border);
+  padding: 18px 22px;
+  border: 1px solid var(--border-hover);
   border-radius: 12px;
-  border-left: 3px solid var(--accent);
-  background: var(--bg-surface);
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin-bottom: 16px;
+  border-left: 4px solid var(--accent);
+  background: var(--bg-elevated);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14.5px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  margin-bottom: 20px;
 }
 
 /* ── Guided Steps ── */
