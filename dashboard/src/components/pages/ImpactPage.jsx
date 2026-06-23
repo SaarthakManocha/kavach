@@ -23,7 +23,7 @@ const deliveryHours = useAnimatedCounter(result?.scenario?.flipkart?.delivery_ho
 
   return (
     <div>
-      <PageHeader title="Impact Assessment" description="Provides a quantified, side-by-side comparison of current network performance versus a simulated optimal enforcement scenario. Equips resource planners with hard, predictive ROI data to justify requests for additional manpower and budget allocations." />
+      <PageHeader title="Impact Assessment" description="This page offers a quantified side by side comparison of current network performance versus a simulated optimal enforcement scenario. It is highly valuable because it provides hard predictive data on return on investment. You can use these insights to easily justify requests for additional manpower and budget allocations." />
 
       {result && (
         <>

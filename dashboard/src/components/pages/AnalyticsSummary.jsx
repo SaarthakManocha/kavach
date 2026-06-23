@@ -30,7 +30,7 @@ export default function AnalyticsSummary() {
 
   return (
     <div>
-      <PageHeader title="Executive Summary" description="High-level aggregation of long-term network KPIs, junction archetypes, and temporal predictions. Functions as an executive intelligence digest, translating raw violation data into strategic insights and a targeted list of priority actions for immediate review." />
+      <PageHeader title="Executive Summary" description="This page is a high level summary of long term network performance, junction behaviors, and temporal predictions. Think of it as an executive intelligence digest. It translates raw violation data into strategic insights and provides a targeted list of priority actions so you know exactly where to focus your attention." />
 
       <div className="stat-cards-row">
         <StatCard label="Total Violations" value={totalViolations} icon={BarChart3} accent="var(--accent)" subtext="Nov '23 – Apr '24 dataset" />
