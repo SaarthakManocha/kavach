@@ -5,6 +5,7 @@ import { fetchHeatmap, fetchEnforcement } from '../../utils/api';
 import TextType from '../common/TextType';
 import logoUrl from '../../assets/logo.png';
 import CountUp from '../common/CountUp';
+import ScrollFloat from '../common/ScrollFloat';
 
 function SnapshotCard({ label, value, icon: Icon, color }) {
   return (
@@ -205,7 +206,9 @@ export default function LandingPage() {
       {/* Operational Snapshot */}
       <section className="landing-section">
         <div className="section-eyebrow">Live Intelligence</div>
-        <h3>Operational Snapshot</h3>
+        <ScrollFloat animationDuration={1} ease="back.inOut(2)" scrollStart="center bottom+=50%" scrollEnd="bottom bottom-=40%" stagger={0.03}>
+          Operational Snapshot
+        </ScrollFloat>
         <p>Current state across Bengaluru's congestion monitoring network.</p>
         <div className="snapshot-grid">
           <SnapshotCard label="Active Zones" value={zones} icon={MapPin} color="var(--accent)" />
@@ -218,7 +221,9 @@ export default function LandingPage() {
       {/* Capabilities */}
       <section className="landing-section">
         <div className="section-eyebrow">Platform Capabilities</div>
-        <h3>Intelligence at Every Level</h3>
+        <ScrollFloat animationDuration={1} ease="back.inOut(2)" scrollStart="center bottom+=50%" scrollEnd="bottom bottom-=40%" stagger={0.03}>
+          Intelligence at Every Level
+        </ScrollFloat>
         <div className="capabilities-grid">
           <div className="capability-card" onClick={() => navigate('/operations/overview')} style={{ cursor: 'pointer' }}>
             <div className="cap-icon"><Radio size={20} /></div>
@@ -241,7 +246,9 @@ export default function LandingPage() {
       {/* Why KAVACH — Before / With / Outcomes progression */}
       <section className="landing-section">
         <div className="section-eyebrow">The Problem We Solve</div>
-        <h3>From Reactive to Predictive</h3>
+        <ScrollFloat animationDuration={1} ease="back.inOut(2)" scrollStart="center bottom+=50%" scrollEnd="bottom bottom-=40%" stagger={0.03}>
+          From Reactive to Predictive
+        </ScrollFloat>
         <p style={{ marginBottom: 40 }}>
           Illegal and spillover parking near commercial corridors, transit hubs, and event zones
           silently amplifies congestion across the city.
