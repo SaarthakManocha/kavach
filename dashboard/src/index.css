@@ -1041,9 +1041,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .landing-nav .nav-brand h1 {
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
 }
 
 .landing-hero {
@@ -1137,8 +1137,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Brand mark */
 .brand-mark {
-  width: 32px;
-  height: 32px;
+  width: 52px;
+  height: 52px;
   background: var(--accent);
   border-radius: 8px;
   display: flex;
