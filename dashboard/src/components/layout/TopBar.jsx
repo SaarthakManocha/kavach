@@ -1,5 +1,5 @@
 import { useLocation, Link } from 'react-router-dom';
-import { Sun, Moon } from 'lucide-react';
+import { Sun, Moon, Menu } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 function ThemeToggleBtn() {
@@ -36,13 +36,16 @@ const PATH_LABELS = {
   '/settings': ['Settings'],
 };
 
-export default function TopBar() {
+export default function TopBar({ onMenuToggle }) {
   const location = useLocation();
   const parts = PATH_LABELS[location.pathname] || [];
 
   return (
     <div className="topbar">
       <div className="topbar-left">
+        <button className="mobile-menu-btn" onClick={onMenuToggle} aria-label="Toggle menu">
+          <Menu size={20} />
+        </button>
       </div>
       <div className="topbar-right">
         <ThemeToggleBtn />

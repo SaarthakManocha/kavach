@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useState } from 'react';
 import Sidebar from './components/layout/Sidebar';
 import TopBar from './components/layout/TopBar';
 import LandingPage from './components/pages/LandingPage';
@@ -17,11 +18,13 @@ import WeatherPage from './components/pages/WeatherPage';
 import BriefingPage from './components/pages/BriefingPage';
 
 function AppLayout({ children }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="app-layout">
-      <Sidebar />
+      <Sidebar isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
       <div className="app-content-area">
-        <TopBar />
+        <TopBar onMenuToggle={() => setMobileMenuOpen(o => !o)} />
         <div className="page-content">
           {children}
         </div>

@@ -44,60 +44,66 @@ const NAV_SECTIONS = [
   },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, onClose }) {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
 
   return (
-    <aside className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
-      <div className="sidebar-brand">
-        <div className="brand-icon">
-          <img src={logoUrl} alt="KAVACH Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-        </div>
-        <div className="brand-text">
-          <h1>KAVACH</h1>
-          <span>Urban Intelligence</span>
-        </div>
-      </div>
+    <>
+      {/* Mobile backdrop overlay */}
+      {isOpen && <div className="sidebar-backdrop" onClick={onClose} />}
 
-      <nav className="sidebar-nav">
-        {NAV_SECTIONS.map((section, si) => (
-          <div className="nav-section" key={si}>
-            {section.label && (
-              <div className="nav-section-label">{section.label}</div>
-            )}
-            {section.items.map(item => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                className={({ isActive }) =>
-                  `nav-item ${isActive || location.pathname.startsWith(item.to.split('/').slice(0, 3).join('/')) && item.to === location.pathname ? 'active' : ''}`
-                }
-              >
-                <span className="nav-icon"><item.icon size={18} /></span>
-                <span>{item.label}</span>
-              </NavLink>
-            ))}
+      <aside className={`sidebar ${collapsed ? 'collapsed' : ''} ${isOpen ? 'mobile-open' : ''}`}>
+        <div className="sidebar-brand">
+          <div className="brand-icon">
+            <img src={logoUrl} alt="KAVACH Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
           </div>
-        ))}
-      </nav>
+          <div className="brand-text">
+            <h1>KAVACH</h1>
+            <span>Urban Intelligence</span>
+          </div>
+        </div>
 
-      <div className="sidebar-footer">
-        <NavLink to="/settings" className="nav-item">
-          <span className="nav-icon"><Settings size={18} /></span>
-          <span>Settings</span>
-        </NavLink>
-        <button
-          className="nav-item"
-          onClick={() => setCollapsed(!collapsed)}
-          style={{ marginTop: 4 }}
-        >
-          <span className="nav-icon">
-            {collapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
-          </span>
-          <span>Collapse</span>
-        </button>
-      </div>
-    </aside>
+        <nav className="sidebar-nav">
+          {NAV_SECTIONS.map((section, si) => (
+            <div className="nav-section" key={si}>
+              {section.label && (
+                <div className="nav-section-label">{section.label}</div>
+              )}
+              {section.items.map(item => (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  className={({ isActive }) =>
+                    `nav-item ${isActive || location.pathname.startsWith(item.to.split('/').slice(0, 3).join('/')) && item.to === location.pathname ? 'active' : ''}`
+                  }
+                  onClick={onClose}
+                >
+                  <span className="nav-icon"><item.icon size={18} /></span>
+                  <span>{item.label}</span>
+                </NavLink>
+              ))}
+            </div>
+          ))}
+        </nav>
+
+        <div className="sidebar-footer">
+          <NavLink to="/settings" className="nav-item" onClick={onClose}>
+            <span className="nav-icon"><Settings size={18} /></span>
+            <span>Settings</span>
+          </NavLink>
+          <button
+            className="nav-item sidebar-collapse-btn"
+            onClick={() => setCollapsed(!collapsed)}
+            style={{ marginTop: 4 }}
+          >
+            <span className="nav-icon">
+              {collapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
+            </span>
+            <span>Collapse</span>
+          </button>
+        </div>
+      </aside>
+    </>
   );
 }
