@@ -34,7 +34,7 @@ const deliveryHours = useAnimatedCounter(result?.scenario?.flipkart?.delivery_ho
               subtext={result.scenario.hours_ci_lower != null ? `95% CI: ${Number(result.scenario.hours_ci_lower).toLocaleString()}\u2013${Number(result.scenario.hours_ci_upper).toLocaleString()}` : undefined} />
             <StatCard label="Delivery Hours Saved" value={result.scenario.flipkart.delivery_hours_saved_monthly} icon={Truck} accent="var(--accent)"
               subtext={result.scenario.flipkart.delivery_hours_ci ? `95% CI: ${result.scenario.flipkart.delivery_hours_ci.replace('--', '\u2013')}` : undefined} />
-            <StatCard label="Zones Impacted" value={result.scenario?.zones_affected || result.scenario?.top_zones_impacted?.length || 0} icon={Target} accent="var(--warning)" />
+            <StatCard label="Zones Impacted" value={result.scenario?.zones_affected || result.scenario?.top_zones_impacted?.length || 0} icon={Target} accent="var(--warning)" subtext="Junctions experiencing traffic relief." />
           </div>
 
           {/* Before / After comparison */}

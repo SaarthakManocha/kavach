@@ -55,8 +55,8 @@ export default function LiveMapPage() {
 
       {/* KPI strip */}
       <div className="stat-cards-row" style={{ marginBottom: 16 }}>
-        <StatCard label="Total Zones" value={zones.length} icon={MapPin} accent="var(--accent)" subtext="Monitored locations" />
-        <StatCard label="Avg CongestionIQ" value={avgCIQ} icon={TrendingUp} accent="var(--warning)" subtext="Across all zones" />
+        <StatCard label="Total Zones" value={zones.length} icon={MapPin} accent="var(--accent)" subtext="Total actively monitored locations." />
+        <StatCard label="Avg CongestionIQ" value={avgCIQ} icon={TrendingUp} accent="var(--warning)" subtext="Average score across all zones." />
         <StatCard label="Critical Zones" value={criticalCount} icon={AlertTriangle} accent="var(--danger)" subtext="Severe congestion. Need attention." />
       </div>
 

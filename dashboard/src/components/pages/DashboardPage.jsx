@@ -129,10 +129,10 @@ export default function DashboardPage() {
 
       {/* KPI Cards */}
       <div className="stat-cards-row">
-        <StatCard label="Active Zones" value={totalZones} icon={MapPin} accent="var(--accent)" subtext="Monitored locations" />
-        <StatCard label="Avg CongestionIQ" value={avgCIQ} icon={TrendingUp} accent="var(--warning)" subtext="Across all zones" />
+        <StatCard label="Active Zones" value={totalZones} icon={MapPin} accent="var(--accent)" subtext="Total actively monitored locations." />
+        <StatCard label="Avg CongestionIQ" value={avgCIQ} icon={TrendingUp} accent="var(--warning)" subtext="Average score across all zones." />
         <StatCard label="Highest Risk" value={highestRisk?.congestiq_score || 0} icon={AlertTriangle} accent="var(--danger)" subtext={highestRisk?.display_name || highestRisk?.zone_id || '\u2014'} />
-        <StatCard label="Enforcement Rate" value={parseFloat(avgEnf)} decimals={1} suffix="%" icon={ShieldCheck} accent="var(--success)" subtext="Avg across BTP" />
+        <StatCard label="Enforcement Rate" value={parseFloat(avgEnf)} decimals={1} suffix="%" icon={ShieldCheck} accent="var(--success)" subtext="Average across all police stations." />
       </div>
 
       {/* Quick Links */}
