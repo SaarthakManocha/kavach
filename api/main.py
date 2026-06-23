@@ -283,7 +283,7 @@ MOCK_ARCHETYPES = [
 # ENDPOINTS
 # ═══════════════════════════════════════════════════════════
 
-@app.get("/api/health")
+@app.api_route("/api/health", methods=["GET", "HEAD"])
 def health():
     """Health check endpoint."""
     return {
