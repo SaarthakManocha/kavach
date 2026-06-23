@@ -33,10 +33,10 @@ export default function AnalyticsSummary() {
       <PageHeader title="Executive Summary" description="High-level aggregation of long-term network KPIs, junction archetypes, and temporal predictions. Functions as an executive intelligence digest, translating raw violation data into strategic insights and a targeted list of priority actions for immediate review." />
 
       <div className="stat-cards-row">
-        <StatCard label="Total Violations" value={totalViolations} icon={BarChart3} accent="var(--accent)" subtext="Nov 2023 – Apr 2024 · 54 stations · ~1,640 violations/day" />
-        <StatCard label="Anomalous Stations" value={anomalousCount} icon={AlertTriangle} accent="var(--danger)" subtext="15% of stations flagged · Immediate DCP review required" urgent={true} />
-        <StatCard label="Avg Enforcement Rate" value={avgRate} decimals={1} suffix="%" icon={ShieldCheck} accent="var(--success)" subtext="BTP network avg · Target: 90% · Gap: 4.6 percentage points" />
-        <StatCard label="Junction Archetypes" value={archetypeCount} icon={Waypoints} accent="var(--accent)" subtext="164 named junctions · 5 behaviour patterns → drives patrol strategy" />
+        <StatCard label="Total Violations" value={totalViolations} icon={BarChart3} accent="var(--accent)" subtext="Nov '23 – Apr '24 dataset" />
+        <StatCard label="Anomalous Stations" value={anomalousCount} icon={AlertTriangle} accent="var(--danger)" subtext="Requires immediate DCP review" urgent={true} />
+        <StatCard label="Avg Enforcement Rate" value={avgRate} decimals={1} suffix="%" icon={ShieldCheck} accent="var(--success)" subtext="City-wide baseline vs target" />
+        <StatCard label="Junction Archetypes" value={archetypeCount} icon={Waypoints} accent="var(--accent)" subtext="Behavior-driven patrol strategy" />
       </div>
 
       {/* Key Insights */}
