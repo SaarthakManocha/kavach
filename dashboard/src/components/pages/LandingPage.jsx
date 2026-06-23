@@ -4,6 +4,7 @@ import { Shield, Radio, BarChart3, CalendarClock, ArrowRight, MapPin, AlertTrian
 import { fetchHeatmap, fetchEnforcement } from '../../utils/api';
 import { useAnimatedCounter } from '../../hooks/useAnimatedCounter';
 import TextType from '../common/TextType';
+import logoUrl from '../../assets/logo.png';
 
 function SnapshotCard({ label, value, icon: Icon, color }) {
   const animated = useAnimatedCounter(value, 1400, value > 100 ? 0 : 1);
@@ -174,7 +175,7 @@ export default function LandingPage() {
       <nav className="landing-nav">
         <div className="nav-brand">
           <div className="brand-mark">
-            <img src="/logo.png" alt="KAVACH Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+            <img src={logoUrl} alt="KAVACH Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
           </div>
           <h1>KAVACH</h1>
         </div>
