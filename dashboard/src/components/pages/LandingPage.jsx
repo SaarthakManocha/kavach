@@ -186,7 +186,7 @@ export default function LandingPage() {
         <div className="hero-content">
           <div className="hero-eyebrow">Urban Intelligence Platform</div>
           <h2>
-            <TextType text="From Reactive Enforcement to Predictive Intelligence." />
+            <TextType text="From Reactive Enforcement to Predictive Intelligence." loop={false} />
           </h2>
           <p className="hero-description">
             Real-time monitoring, analytical intelligence, and enforcement planning
