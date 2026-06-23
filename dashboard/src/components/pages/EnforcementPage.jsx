@@ -30,9 +30,9 @@ export default function EnforcementPage() {
 
       {/* KPI strip */}
       <div className="stat-cards-row" style={{ marginBottom: 20 }}>
-        <StatCard label="Total Violations" value={totalViolations} icon={BarChart3} accent="var(--accent)" subtext={`${filtered.length} stations`} />
+        <StatCard label="Total Violations" value={totalViolations} icon={BarChart3} accent="var(--accent)" subtext={`Across ${filtered.length} stations`} />
         <StatCard label="Anomalous Stations" value={anomalyCount} icon={AlertTriangle} accent="var(--danger)" subtext={`of ${filtered.length} total`} />
-        <StatCard label="Avg Enforcement Rate" value={avgRate} decimals={1} suffix="%" icon={ShieldCheck} accent="var(--success)" subtext="Across filtered" />
+        <StatCard label="Avg Enforcement Rate" value={avgRate} decimals={1} suffix="%" icon={ShieldCheck} accent="var(--success)" subtext="Average across filtered stations" />
       </div>
 
       <div style={{ display: 'flex', gap: 16, alignItems: 'center', marginBottom: 20 }}>
