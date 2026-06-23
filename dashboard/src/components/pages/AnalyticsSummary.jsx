@@ -35,7 +35,7 @@ export default function AnalyticsSummary() {
       <div className="stat-cards-row">
         <StatCard label="Total Violations" value={totalViolations} icon={BarChart3} accent="var(--accent)" subtext="Nov '23 – Apr '24 dataset" />
         <StatCard label="Anomalous Stations" value={anomalousCount} icon={AlertTriangle} accent="var(--danger)" subtext="Requires immediate DCP review" urgent={true} />
-        <StatCard label="Avg Enforcement Rate" value={avgRate} decimals={1} suffix="%" icon={ShieldCheck} accent="var(--success)" subtext="City-wide baseline vs target" />
+        <StatCard label="Avg Enforcement Rate" value={avgRate} decimals={1} suffix="%" icon={ShieldCheck} accent="var(--success)" subtext="Short of 90% BTP target" />
         <StatCard label="Junction Archetypes" value={archetypeCount} icon={Waypoints} accent="var(--accent)" subtext="Behavior-driven patrol strategy" />
       </div>
 
