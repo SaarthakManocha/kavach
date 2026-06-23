@@ -43,18 +43,6 @@ export default function TopBar() {
   return (
     <div className="topbar">
       <div className="topbar-left">
-        <nav className="breadcrumb">
-          <Link to="/dashboard">Home</Link>
-          {parts.map((part, i) => (
-            <span key={i}>
-              <span className="separator">/</span>
-              {i === parts.length - 1
-                ? <span className="current">{part}</span>
-                : <span>{part}</span>
-              }
-            </span>
-          ))}
-        </nav>
       </div>
       <div className="topbar-right">
         <ThemeToggleBtn />
