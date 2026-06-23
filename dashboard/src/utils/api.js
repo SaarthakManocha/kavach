@@ -1,4 +1,4 @@
-const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:8000') + '/api'
+const API_BASE = (import.meta.env.VITE_API_URL || (import.meta.env.PROD ? 'https://kavach-api-5dnm.onrender.com' : 'http://localhost:8000')) + '/api'
 
 export const fetchHeatmap = () =>
   fetch(`${API_BASE}/heatmap`).then(r => r.json());
