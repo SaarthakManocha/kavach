@@ -49,21 +49,21 @@ export default function WeatherPage() {
           suffix=" vpd"
           icon={Droplets}
           accent="var(--accent)"
-          subtext={`Dry: ${city.dry_avg_violations || 0} vpd`}
+          subtext={`Dry: ${city.dry_avg_violations || 0} vpd (violations per day)`}
         />
         <StatCard
           label="Surge Zones"
           value={surgeZones.length}
           icon={TrendingUp}
           accent="var(--danger)"
-          subtext="Violations increase >50% on rain"
+          subtext="Violations increase over 50% on rain"
         />
         <StatCard
           label="Drop Zones"
           value={dropZones.length}
           icon={TrendingDown}
           accent="var(--success)"
-          subtext="Violations drop >50% on rain"
+          subtext="Violations drop over 50% on rain"
         />
       </div>
 
