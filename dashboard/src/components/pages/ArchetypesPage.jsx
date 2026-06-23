@@ -25,7 +25,7 @@ export default function ArchetypesPage() {
 
   return (
     <div>
-      <PageHeader title="Junction Archetypes" description="This page groups complex junctions into distinct behavioral categories based on their unique violation patterns. It is very useful because it allows you to move away from one size fits all strategies. Instead, you can deploy specialized patrol tactics that are perfectly tailored to the specific traffic behavior of each junction." />
+      <PageHeader title="Junction Archetypes" description="Analyze how complex junctions are grouped into distinct behavioral categories based on their unique violation patterns. This is very useful because it allows you to move away from one size fits all strategies. Instead, you can deploy specialized patrol tactics that are perfectly tailored to the specific traffic behavior of each junction." />
 
       <div className="map-filters" style={{ marginBottom: 20 }}>
         <button className={`filter-pill ${filter === 'all' ? 'active' : ''}`} onClick={() => setFilter('all')}>All</button>

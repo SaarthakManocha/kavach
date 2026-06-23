@@ -51,7 +51,7 @@ export default function LiveMapPage() {
 
   return (
     <div>
-      <PageHeader title="Live Map" description="This page features an interactive real time map that plots congestion severity and active traffic cascades across the city. It is essential for visually tracking how congestion spreads from one junction to another. You can click directly into affected zones and dispatch units immediately before the gridlock expands." />
+      <PageHeader title="Live Map" description="Here you will find an interactive real time map that plots congestion severity and active traffic cascades across the city. It is essential for visually tracking how congestion spreads from one junction to another. You can click directly into affected zones and dispatch units immediately before the gridlock expands." />
 
       {/* KPI strip */}
       <div className="stat-cards-row" style={{ marginBottom: 16 }}>

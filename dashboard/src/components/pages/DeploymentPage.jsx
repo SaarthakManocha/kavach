@@ -40,7 +40,7 @@ export default function DeploymentPage() {
 
   return (
     <div>
-      <PageHeader title="Deployment Schedule" description="This page provides a predictive deployment schedule that matches forecasted violation demand against your active patrol fleet capacity. It is highly significant because it automatically generates time optimized itineraries, ensuring units are deployed to the highest impact zones exactly when congestion is predicted to peak." />
+      <PageHeader title="Deployment Schedule" description="Here you can access a predictive deployment schedule that matches forecasted violation demand against your active patrol fleet capacity. It is highly significant because it automatically generates time optimized itineraries, ensuring units are deployed to the highest impact zones exactly when congestion is predicted to peak." />
 
       {/* Fleet Summary KPIs */}
       {fleet.total_units && (

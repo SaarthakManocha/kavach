@@ -50,7 +50,7 @@ export default function HighRiskZones() {
 
   return (
     <div>
-      <PageHeader title="High Risk Zones" description="This page displays a prioritized breakdown of all monitored zones, sorted by their immediate severity and total congestion scores. It is incredibly useful because it provides granular violation data and the primary drivers of congestion for each location, along with specific deployment recommendations to systematically fix the highest risk chokepoints." />
+      <PageHeader title="High Risk Zones" description="Discover a prioritized breakdown of all monitored zones, sorted by their immediate severity and total congestion scores. This is incredibly useful because it provides granular violation data and the primary drivers of congestion for each location, along with specific deployment recommendations to systematically fix the highest risk chokepoints." />
 
       <div style={{ display: 'flex', gap: 16, alignItems: 'center', marginBottom: 20 }}>
         <div className="search-wrapper">

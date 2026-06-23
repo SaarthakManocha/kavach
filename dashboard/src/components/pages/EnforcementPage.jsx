@@ -26,7 +26,7 @@ export default function EnforcementPage() {
 
   return (
     <div>
-      <PageHeader title="Enforcement Analysis" description="This page highlights police stations with statistically anomalous enforcement patterns compared to their violation volume. It is a powerful tool for accountability, allowing you to click any station to see exactly what factors are driving the anomaly. This ensures all network enforcement is balanced and data driven." />
+      <PageHeader title="Enforcement Analysis" description="Identify police stations with statistically anomalous enforcement patterns compared to their violation volume. This acts as a powerful tool for accountability, allowing you to click any station to see exactly what factors are driving the anomaly. This ensures all network enforcement is balanced and data driven." />
 
       {/* KPI strip */}
       <div className="stat-cards-row" style={{ marginBottom: 20 }}>

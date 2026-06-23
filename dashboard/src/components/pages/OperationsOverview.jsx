@@ -35,7 +35,7 @@ export default function OperationsOverview() {
 
   return (
     <div>
-      <PageHeader title="Operations Overview" description="This page provides a comprehensive real time snapshot of active field operations, unit locations, and detected anomalies. It serves as a continuous monitor of network health, making it easy to quickly spot emergent traffic hotspots and rapidly allocate reserve units exactly where they are needed most." />
+      <PageHeader title="Operations Overview" description="Get a comprehensive real time snapshot of active field operations, unit locations, and detected anomalies. This serves as a continuous monitor of network health, making it easy to quickly spot emergent traffic hotspots and rapidly allocate reserve units exactly where they are needed most." />
 
       <div className="stat-cards-row">
         <StatCard label="Zones Monitored" value={totalZones} icon={MapPin} accent="var(--accent)" subtext="Total actively monitored locations." />

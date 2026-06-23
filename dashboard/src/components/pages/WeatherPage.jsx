@@ -31,7 +31,7 @@ export default function WeatherPage() {
 
   return (
     <div>
-      <PageHeader title="Weather Sensitivity" description="This page shows how different weather conditions affect traffic violations across the city. It is highly useful for identifying which specific junctions experience the worst congestion during rainfall, allowing you to proactively adjust patrol routes and prevent traffic gridlock before a storm hits." />
+      <PageHeader title="Weather Sensitivity" description="Explore how different weather conditions affect traffic violations across the city. This is highly useful for identifying which specific junctions experience the worst congestion during rainfall, allowing you to proactively adjust patrol routes and prevent traffic gridlock before a storm hits." />
 
       {/* City KPIs */}
       <div className="stat-cards-row">
