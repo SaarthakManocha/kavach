@@ -51,7 +51,7 @@ export default function DeploymentPage() {
             suffix="%"
             icon={Target}
             accent={demandCoverage >= 70 ? 'var(--success)' : 'var(--warning)'}
-            subtext="Predicted vs routed units"
+            subtext="Percentage of predicted demand met by routed units."
           />
           <StatCard
             label="Fleet Efficiency"
@@ -60,7 +60,7 @@ export default function DeploymentPage() {
             suffix="%"
             icon={Truck}
             accent="var(--success)"
-            subtext="Patrol vs transit time"
+            subtext="Ratio of active patrol time versus transit time."
           />
           <StatCard
             label="Avg Transit / Unit"
@@ -69,7 +69,7 @@ export default function DeploymentPage() {
             suffix=" min"
             icon={Clock}
             accent="var(--warning)"
-            subtext={`${fleet.avg_distance_km_per_unit} km avg`}
+            subtext={`Average transit distance per unit is ${fleet.avg_distance_km_per_unit} km.`}
           />
           <StatCard
             label="Fleet Distance"
@@ -78,14 +78,14 @@ export default function DeploymentPage() {
             suffix=" km"
             icon={Route}
             accent="var(--accent)"
-            subtext={`${fleet.total_units} units deployed`}
+            subtext={`Total distance covered by ${fleet.total_units} deployed units.`}
           />
           <StatCard
             label="Infeasible Transits"
             value={fleet.infeasible_assignments}
             icon={AlertTriangle}
             accent={fleet.infeasible_assignments > 0 ? 'var(--danger)' : 'var(--success)'}
-            subtext="> 45 min transit"
+            subtext="Transits requiring more than 45 minutes to complete."
           />
         </div>
       )}
