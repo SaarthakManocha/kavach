@@ -316,17 +316,19 @@ Correlates rainfall data with violation patterns to identify weather-sensitive z
 | Page | Route | Description |
 |---|---|---|
 | Landing | `/` | Project showcase with key statistics |
-| Dashboard | `/dashboard` | Interactive heatmap with zone detail panel |
-| Deployment | `/deployment` | Patrol grid, unit itineraries, and fleet KPIs |
-| High Risk Zones | `/high-risk` | Searchable table of high-priority zones |
-| Enforcement | `/enforcement` | Station-level enforcement analysis |
-| Weather | `/weather` | Weather-violation correlation charts |
-| Impact | `/impact` | Counterfactual what-if analysis |
-| Briefing | `/briefing` | AI daily operations briefing |
-| Archetypes | `/archetypes` | Junction behavioral pattern clusters |
-| Operations | `/operations` | Fleet operations overview |
-| Analytics | `/analytics` | Key analytics summary |
-| Live Map | `/live` | Real-time map visualization |
+| Dashboard | `/dashboard` | Central command view with KPIs, zone severity, and risk zones |
+| Daily Briefing | `/briefing` | AI-generated daily operations briefing |
+| Operations Overview | `/operations/overview` | Fleet operations summary with quick-access cards |
+| Live Map | `/operations/live-map` | Interactive heatmap with cascade spread animations |
+| High Risk Zones | `/operations/high-risk` | Searchable table of high-priority zones |
+| Executive Summary | `/analytics/summary` | Key analytics summary with top alerts |
+| Enforcement Analysis | `/analytics/enforcement` | Station-level enforcement anomaly detection |
+| Violation Trends | `/analytics/trends` | Temporal violation trend charts |
+| Junction Archetypes | `/analytics/archetypes` | Junction behavioral pattern clusters |
+| Weather Sensitivity | `/analytics/weather` | Weather-violation correlation charts |
+| Deployment Schedule | `/patrol/deployment` | 24h patrol grid, unit itineraries, fleet KPIs |
+| Simulation Lab | `/patrol/simulation` | Interactive what-if patrol scenarios |
+| Impact Assessment | `/patrol/impact` | Counterfactual enforcement analysis |
 
 ---
 
