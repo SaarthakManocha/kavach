@@ -83,17 +83,33 @@ export default function HeatmapMap({ zones, patrolData, cascadeData, selectedZon
 
   // Lifted the timer logic so HeatmapMap knows how far the cascade has rippled
   useEffect(() => {
-    if (cascadeData) {
+    if (!cascadeData) {
       setCascadeStep(0);
-      const timers = [
-        setTimeout(() => setCascadeStep(1), 300),
-        setTimeout(() => setCascadeStep(2), 1300),
-        setTimeout(() => setCascadeStep(3), 2300),
-      ];
-      return () => timers.forEach(clearTimeout);
-    } else {
-      setCascadeStep(0);
+      return;
     }
+
+    let isMounted = true;
+    let timers = [];
+
+    const runCascade = () => {
+      if (!isMounted) return;
+      setCascadeStep(0);
+      timers = [
+        setTimeout(() => isMounted && setCascadeStep(1), 300),
+        setTimeout(() => isMounted && setCascadeStep(2), 1300),
+        setTimeout(() => isMounted && setCascadeStep(3), 2300),
+      ];
+    };
+
+    runCascade();
+    // Re-run the cascade animation sequence every 4 seconds
+    const interval = setInterval(runCascade, 4000);
+
+    return () => {
+      isMounted = false;
+      timers.forEach(clearTimeout);
+      clearInterval(interval);
+    };
   }, [cascadeData]);
 
   const radii = [300, 700, 1400];
